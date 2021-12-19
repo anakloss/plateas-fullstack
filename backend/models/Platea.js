@@ -2,11 +2,11 @@ const { Schema, model } = require('mongoose');
 
 const PlateaSchema = new Schema({
   platea: {
-    type: Number,
+    type: String,
     required: true
   },
-  fecha: {
-    type: Date,
+  dia: {
+    type: String,
     required: true
   },
   comprado: {

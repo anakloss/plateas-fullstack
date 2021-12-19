@@ -1,0 +1,1856 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Disponibilidad de Plateas</title>
+    <!-- bootstrap 5 -->
+    <link rel="stylesheet" href="https://bootswatch.com/5/cosmo/bootstrap.min.css">
+    <!-- Animate CSS -->
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  </head>
+  <body>
+    <nav class="navbar navbar-dark bg-dark">
+      <div class="container">
+        <a href="/" class="navbar-brand">Plateas</a>
+      </div>
+    </nav>
+
+    <div class="container p-2">
+      <div class="row">
+
+        <div class="col-md-7">
+          <menu class="menu">
+            <div class="platea-menu">
+              <label>Seleccionar fecha</label>
+              <select id="fecha" name="fecha" title="Fecha">
+                  <option value="dia1">06/01/2022</option>
+                  <option value="dia2">07/01/2022</option>
+                  <option value="dia3">08/01/2022</option>
+                  <option value="dia4">09/01/2022</option>
+                  <option value="dia5">10/01/2022</option>
+                  <option value="dia6">11/01/2022</option>
+                  <option value="dia7">12/01/2022</option>
+              </select>
+            </div>
+
+            <div class="mapa">
+              <p class="area">
+                <input id="area_izq" type="radio" name="area" value="izq" class="area_inp" checked>
+                <label for="area_izq">
+                  <svg viewBox="0 0 100 100" class="izquierda"></svg>Área Izquierda
+                </label>
+              </p>
+
+              <p class="area">
+                <input id="area_der" type="radio" name="area" value="der" class="area_inp" checked>
+                <label for="area_der">
+                  <svg viewBox="0 0 100 100" class="derecha"></svg>Área Derecha
+                </label>
+              </p>
+            </div>
+          </menu>
+        </div>
+
+        <div class="col-md-5 p-4">
+          <p class="text mb-3">
+            <span id="count">0</span> asientos ocupados de <span id="total">0</span>
+          </p>
+
+          <ul class="showcase">
+            <li>
+              <div class="asiento ocupado"></div>
+              <small>Ocupado</small>
+            </li>
+            <li>
+              <div class="asiento reservado"></div>
+              <small>Reservado</small>
+            </li>
+            <li>
+              <div class="asiento"></div>
+              <small>Desocupado</small>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="asientos-mapa p-3">
+        <!-- <div class="escenario"></div> -->
+
+        <!-- Asientos -->
+        <div class="columna1" id="col-izq" style="display:none;">
+          <!-- Fila 2 -->
+          <div class="fila" id="fila">
+            <div class="asiento">21</div>
+            <div class="asiento">22</div>
+            <div class="asiento">23</div>
+            <div class="asiento">24</div>
+            <div class="asiento">25</div>
+            <div class="asiento">26</div>
+            <div class="asiento">27</div>
+            <div class="asiento">28</div>
+            <div class="asiento">29</div>
+            <div class="asiento">30</div>
+            <div class="asiento">31</div>
+            <div class="asiento">32</div>
+          </div>
+          <!-- Fila 3 -->
+          <div class="fila" id="fila">
+            <div class="asiento">72</div>
+            <div class="asiento">71</div>
+            <div class="asiento">70</div>
+            <div class="asiento">69</div>
+            <div class="asiento">68</div>
+            <div class="asiento">67</div>
+            <div class="asiento">66</div>
+            <div class="asiento">65</div>
+            <div class="asiento">64</div>
+            <div class="asiento">63</div>
+            <div class="asiento">62</div>
+            <div class="asiento">61</div>
+            <div class="asiento">60</div>
+            <div class="asiento">59</div>
+          </div>
+          <!-- Fila 4 -->
+          <div class="fila" id="fila">
+            <div class="asiento">73</div>
+            <div class="asiento">74</div>
+            <div class="asiento">75</div>
+            <div class="asiento">76</div>
+            <div class="asiento">77</div>
+            <div class="asiento">78</div>
+            <div class="asiento">79</div>
+            <div class="asiento">80</div>
+            <div class="asiento">81</div>
+            <div class="asiento">82</div>
+            <div class="asiento">83</div>
+            <div class="asiento">84</div>
+            <div class="asiento">85</div>
+            <div class="asiento">86</div>
+            <div class="asiento">87</div>
+            <div class="asiento">88</div>
+          </div>
+          <!-- Fila 5 -->
+          <div class="fila" id="fila">
+            <div class="asiento">140</div>
+            <div class="asiento">139</div>
+            <div class="asiento">138</div>
+            <div class="asiento">137</div>
+            <div class="asiento">136</div>
+            <div class="asiento">135</div>
+            <div class="asiento">134</div>
+            <div class="asiento">133</div>
+            <div class="asiento">132</div>
+            <div class="asiento">131</div>
+            <div class="asiento">130</div>
+            <div class="asiento">129</div>
+            <div class="asiento">128</div>
+            <div class="asiento">127</div>
+            <div class="asiento">126</div>
+            <div class="asiento">125</div>
+            <div class="asiento">124</div>
+            <div class="asiento">123</div>
+          </div>
+          <!-- Fila 6 -->
+          <div class="fila" id="fila">
+            <div class="asiento">141</div>
+            <div class="asiento">142</div>
+            <div class="asiento">143</div>
+            <div class="asiento">144</div>
+            <div class="asiento">145</div>
+            <div class="asiento">146</div>
+            <div class="asiento">147</div>
+            <div class="asiento">148</div>
+            <div class="asiento">149</div>
+            <div class="asiento">150</div>
+            <div class="asiento">151</div>
+            <div class="asiento">152</div>
+            <div class="asiento">153</div>
+            <div class="asiento">154</div>
+            <div class="asiento">155</div>
+            <div class="asiento">156</div>
+            <div class="asiento">157</div>
+            <div class="asiento">158</div>
+            <div class="asiento">159</div>
+            <div class="asiento">160</div>
+          </div>
+          <!-- Fila 7 -->
+          <div class="fila" id="fila">
+            <div class="asiento">224</div>
+            <div class="asiento">223</div>
+            <div class="asiento">222</div>
+            <div class="asiento">221</div>
+            <div class="asiento">220</div>
+            <div class="asiento">219</div>
+            <div class="asiento">218</div>
+            <div class="asiento">217</div>
+            <div class="asiento">216</div>
+            <div class="asiento">215</div>
+            <div class="asiento">214</div>
+            <div class="asiento">213</div>
+            <div class="asiento">212</div>
+            <div class="asiento">211</div>
+            <div class="asiento">210</div>
+            <div class="asiento">209</div>
+            <div class="asiento">208</div>
+            <div class="asiento">207</div>
+            <div class="asiento">206</div>
+            <div class="asiento">205</div>
+            <div class="asiento">204</div>
+            <div class="asiento">203</div>
+          </div>
+          <!-- Fila 8 -->
+          <div class="fila" id="fila">
+            <div class="asiento">225</div>
+            <div class="asiento">226</div>
+            <div class="asiento">227</div>
+            <div class="asiento">228</div>
+            <div class="asiento">229</div>
+            <div class="asiento">230</div>
+            <div class="asiento">231</div>
+            <div class="asiento">232</div>
+            <div class="asiento">233</div>
+            <div class="asiento">234</div>
+            <div class="asiento">235</div>
+            <div class="asiento">236</div>
+            <div class="asiento">237</div>
+            <div class="asiento">238</div>
+            <div class="asiento">239</div>
+            <div class="asiento">240</div>
+            <div class="asiento">241</div>
+            <div class="asiento">242</div>
+            <div class="asiento">243</div>
+            <div class="asiento">244</div>
+            <div class="asiento">245</div>
+            <div class="asiento">246</div>
+            <div class="asiento">247</div>
+            <div class="asiento">248</div>
+          </div>
+          <!-- Fila 9 -->
+          <div class="fila" id="fila">
+            <div class="asiento" id="324">324</div>
+            <div class="asiento" id="323">323</div>
+            <div class="asiento" id="322">322</div>
+            <div class="asiento" id="321">321</div>
+            <div class="asiento">320</div>
+            <div class="asiento">319</div>
+            <div class="asiento">318</div>
+            <div class="asiento">317</div>
+            <div class="asiento">316</div>
+            <div class="asiento">315</div>
+            <div class="asiento">314</div>
+            <div class="asiento">313</div>
+            <div class="asiento">312</div>
+            <div class="asiento">311</div>
+            <div class="asiento">310</div>
+            <div class="asiento">309</div>
+            <div class="asiento">308</div>
+            <div class="asiento">307</div>
+            <div class="asiento">306</div>
+            <div class="asiento">305</div>
+            <div class="asiento">304</div>
+            <div class="asiento">303</div>
+            <div class="asiento">302</div>
+            <div class="asiento">301</div>
+            <div class="asiento">300</div>
+            <div class="asiento">299</div>
+          </div>
+          <!-- Fila 10 -->
+          <div class="fila" id="fila">
+            <div class="asiento">325</div>
+            <div class="asiento">326</div>
+            <div class="asiento">327</div>
+            <div class="asiento">328</div>
+            <div class="asiento">329</div>
+            <div class="asiento">330</div>
+            <div class="asiento">331</div>
+            <div class="asiento">332</div>
+            <div class="asiento">333</div>
+            <div class="asiento">334</div>
+            <div class="asiento">335</div>
+            <div class="asiento">336</div>
+            <div class="asiento">337</div>
+            <div class="asiento">338</div>
+            <div class="asiento">339</div>
+            <div class="asiento">340</div>
+            <div class="asiento">341</div>
+            <div class="asiento">342</div>
+            <div class="asiento">343</div>
+            <div class="asiento">344</div>
+            <div class="asiento">345</div>
+            <div class="asiento">346</div>
+            <div class="asiento">347</div>
+            <div class="asiento">348</div>
+            <div class="asiento">349</div>
+            <div class="asiento">350</div>
+            <div class="asiento">351</div>
+            <div class="asiento">352</div>
+          </div>
+          <!-- Fila 11 -->
+          <div class="fila" id="fila">
+            <div class="asiento">440</div>
+            <div class="asiento">439</div>
+            <div class="asiento">438</div>
+            <div class="asiento">437</div>
+            <div class="asiento">436</div>
+            <div class="asiento">435</div>
+            <div class="asiento">434</div>
+            <div class="asiento">433</div>
+            <div class="asiento">432</div>
+            <div class="asiento">431</div>
+            <div class="asiento">430</div>
+            <div class="asiento">429</div>
+            <div class="asiento">428</div>
+            <div class="asiento">427</div>
+            <div class="asiento">426</div>
+            <div class="asiento">425</div>
+            <div class="asiento">424</div>
+            <div class="asiento">423</div>
+            <div class="asiento">422</div>
+            <div class="asiento">421</div>
+            <div class="asiento">420</div>
+            <div class="asiento">419</div>
+            <div class="asiento">418</div>
+            <div class="asiento">417</div>
+            <div class="asiento">416</div>
+            <div class="asiento">415</div>
+            <div class="asiento">414</div>
+            <div class="asiento">413</div>
+            <div class="asiento">412</div>
+            <div class="asiento">411</div>
+          </div>
+          <!-- Fila 12 -->
+          <div class="fila" id="fila">
+            <div class="asiento">441</div>
+            <div class="asiento">442</div>
+            <div class="asiento">443</div>
+            <div class="asiento">444</div>
+            <div class="asiento">445</div>
+            <div class="asiento">446</div>
+            <div class="asiento">447</div>
+            <div class="asiento">448</div>
+            <div class="asiento">449</div>
+            <div class="asiento">450</div>
+            <div class="asiento">451</div>
+            <div class="asiento">452</div>
+            <div class="asiento">453</div>
+            <div class="asiento">454</div>
+            <div class="asiento">455</div>
+            <div class="asiento">456</div>
+            <div class="asiento">457</div>
+            <div class="asiento">458</div>
+            <div class="asiento">459</div>
+            <div class="asiento">460</div>
+            <div class="asiento">461</div>
+            <div class="asiento">462</div>
+            <div class="asiento">463</div>
+            <div class="asiento">464</div>
+            <div class="asiento">465</div>
+            <div class="asiento">466</div>
+            <div class="asiento">467</div>
+            <div class="asiento">468</div>
+            <div class="asiento">469</div>
+            <div class="asiento">470</div>
+            <div class="asiento">471</div>
+            <div class="asiento">472</div>
+          </div>
+          <!-- Fila 13 -->
+          <div class="fila" id="fila">
+            <div class="asiento">572</div>
+            <div class="asiento">571</div>
+            <div class="asiento">570</div>
+            <div class="asiento">569</div>
+            <div class="asiento">568</div>
+            <div class="asiento">567</div>
+            <div class="asiento">566</div>
+            <div class="asiento">565</div>
+            <div class="asiento">564</div>
+            <div class="asiento">563</div>
+            <div class="asiento">562</div>
+            <div class="asiento">561</div>
+            <div class="asiento">560</div>
+            <div class="asiento">559</div>
+            <div class="asiento">558</div>
+            <div class="asiento">557</div>
+            <div class="asiento">556</div>
+            <div class="asiento">555</div>
+            <div class="asiento">554</div>
+            <div class="asiento">553</div>
+            <div class="asiento">552</div>
+            <div class="asiento">551</div>
+            <div class="asiento">550</div>
+            <div class="asiento">549</div>
+            <div class="asiento">548</div>
+            <div class="asiento">547</div>
+            <div class="asiento">546</div>
+            <div class="asiento">545</div>
+            <div class="asiento">544</div>
+            <div class="asiento">543</div>
+            <div class="asiento">542</div>
+            <div class="asiento">541</div>
+            <div class="asiento">540</div>
+            <div class="asiento">539</div>
+          </div>
+          <!-- Fila 14 -->
+          <div class="fila" id="fila_izq">
+            <div class="asiento">573</div>
+            <div class="asiento">574</div>
+            <div class="asiento">575</div>
+            <div class="asiento">576</div>
+            <div class="asiento">577</div>
+            <div class="asiento">578</div>
+            <div class="asiento">579</div>
+            <div class="asiento">580</div>
+            <div class="asiento">581</div>
+            <div class="asiento">582</div>
+            <div class="asiento">583</div>
+            <div class="asiento">584</div>
+            <div class="asiento">585</div>
+            <div class="asiento">586</div>
+            <div class="asiento">587</div>
+            <div class="asiento">588</div>
+            <div class="asiento">589</div>
+            <div class="asiento">590</div>
+            <div class="asiento">591</div>
+            <div class="asiento">592</div>
+            <div class="asiento">593</div>
+            <div class="asiento">594</div>
+            <div class="asiento">595</div>
+            <div class="asiento">596</div>
+            <div class="asiento">597</div>
+            <div class="asiento">598</div>
+            <div class="asiento">599</div>
+            <div class="asiento">600</div>
+            <div class="asiento">601</div>
+            <div class="asiento">602</div>
+            <div class="asiento">603</div>
+            <div class="asiento">604</div>
+            <div class="asiento">605</div>
+          </div>
+          <!-- Fila 15 -->
+          <div class="fila" id="fila_izq">
+            <div class="asiento">710</div>
+            <div class="asiento">709</div>
+            <div class="asiento">708</div>
+            <div class="asiento">707</div>
+            <div class="asiento">706</div>
+            <div class="asiento">705</div>
+            <div class="asiento">704</div>
+            <div class="asiento">703</div>
+            <div class="asiento">702</div>
+            <div class="asiento">701</div>
+            <div class="asiento">700</div>
+            <div class="asiento">699</div>
+            <div class="asiento">698</div>
+            <div class="asiento">697</div>
+            <div class="asiento">696</div>
+            <div class="asiento">695</div>
+            <div class="asiento">694</div>
+            <div class="asiento">693</div>
+            <div class="asiento">692</div>
+            <div class="asiento">691</div>
+            <div class="asiento">690</div>
+            <div class="asiento">689</div>
+            <div class="asiento">688</div>
+            <div class="asiento">687</div>
+            <div class="asiento">686</div>
+            <div class="asiento">685</div>
+            <div class="asiento">684</div>
+            <div class="asiento">683</div>
+            <div class="asiento">682</div>
+            <div class="asiento">681</div>
+            <div class="asiento">680</div>
+            <div class="asiento">679</div>
+            <div class="asiento">678</div>
+            <div class="asiento">677</div>
+            <div class="asiento">676</div>
+          </div>
+          <!-- Fila 16 -->
+          <div class="fila" id="fila_izq">
+            <div class="asiento">711</div>
+            <div class="asiento">712</div>
+            <div class="asiento">713</div>
+            <div class="asiento">714</div>
+            <div class="asiento">715</div>
+            <div class="asiento">716</div>
+            <div class="asiento">717</div>
+            <div class="asiento">718</div>
+            <div class="asiento">719</div>
+            <div class="asiento">720</div>
+            <div class="asiento">721</div>
+            <div class="asiento">722</div>
+            <div class="asiento">723</div>
+            <div class="asiento">724</div>
+            <div class="asiento">725</div>
+            <div class="asiento">726</div>
+            <div class="asiento">727</div>
+            <div class="asiento">728</div>
+            <div class="asiento">729</div>
+            <div class="asiento">730</div>
+            <div class="asiento">731</div>
+            <div class="asiento">732</div>
+            <div class="asiento">733</div>
+            <div class="asiento">734</div>
+            <div class="asiento">735</div>
+            <div class="asiento">736</div>
+            <div class="asiento">737</div>
+            <div class="asiento">738</div>
+            <div class="asiento">739</div>
+            <div class="asiento">740</div>
+            <div class="asiento">741</div>
+            <div class="asiento">742</div>
+            <div class="asiento">743</div>
+            <div class="asiento">744</div>
+            <div class="asiento">745</div>
+            <div class="asiento">746</div>
+            <div class="asiento">747</div>
+          </div>
+          <!-- Fila 17 -->
+          <div class="fila" id="fila_izq">
+            <div class="asiento">864</div>
+            <div class="asiento">863</div>
+            <div class="asiento">862</div>
+            <div class="asiento">861</div>
+            <div class="asiento">860</div>
+            <div class="asiento">859</div>
+            <div class="asiento">858</div>
+            <div class="asiento">857</div>
+            <div class="asiento">856</div>
+            <div class="asiento">855</div>
+            <div class="asiento">854</div>
+            <div class="asiento">853</div>
+            <div class="asiento">852</div>
+            <div class="asiento">851</div>
+            <div class="asiento">850</div>
+            <div class="asiento">849</div>
+            <div class="asiento">848</div>
+            <div class="asiento">847</div>
+            <div class="asiento">846</div>
+            <div class="asiento">845</div>
+            <div class="asiento">844</div>
+            <div class="asiento">843</div>
+            <div class="asiento">842</div>
+            <div class="asiento">841</div>
+            <div class="asiento">840</div>
+            <div class="asiento">839</div>
+            <div class="asiento">838</div>
+            <div class="asiento">837</div>
+            <div class="asiento">836</div>
+            <div class="asiento">835</div>
+            <div class="asiento">834</div>
+            <div class="asiento">833</div>
+            <div class="asiento">832</div>
+            <div class="asiento">831</div>
+            <div class="asiento">830</div>
+            <div class="asiento">829</div>
+            <div class="asiento">828</div>
+            <div class="asiento">827</div>
+            <div class="asiento">826</div>
+          </div>
+          <!-- Fila 18 -->
+          <div class="fila" id="fila_izq">
+            <div class="asiento">865</div>
+            <div class="asiento">866</div>
+            <div class="asiento">867</div>
+            <div class="asiento">868</div>
+            <div class="asiento">869</div>
+            <div class="asiento">870</div>
+            <div class="asiento">871</div>
+            <div class="asiento">872</div>
+            <div class="asiento">873</div>
+            <div class="asiento">874</div>
+            <div class="asiento">875</div>
+            <div class="asiento">876</div>
+            <div class="asiento">877</div>
+            <div class="asiento">878</div>
+            <div class="asiento">879</div>
+            <div class="asiento">880</div>
+            <div class="asiento">881</div>
+            <div class="asiento">882</div>
+            <div class="asiento">883</div>
+            <div class="asiento">884</div>
+            <div class="asiento">885</div>
+            <div class="asiento">886</div>
+            <div class="asiento">887</div>
+            <div class="asiento">888</div>
+            <div class="asiento">889</div>
+            <div class="asiento">890</div>
+            <div class="asiento">891</div>
+            <div class="asiento">892</div>
+            <div class="asiento">893</div>
+            <div class="asiento">894</div>
+            <div class="asiento">895</div>
+            <div class="asiento">896</div>
+            <div class="asiento">897</div>
+            <div class="asiento">898</div>
+            <div class="asiento">899</div>
+            <div class="asiento">900</div>
+            <div class="asiento">901</div>
+            <div class="asiento">902</div>
+            <div class="asiento">903</div>
+            <div class="asiento">904</div>
+            <div class="asiento">905</div>
+          </div>
+          <!-- Fila 19 -->
+          <div class="fila" id="fila_izq">
+            <div class="asiento">1034</div>
+            <div class="asiento">1033</div>
+            <div class="asiento">1032</div>
+            <div class="asiento">1031</div>
+            <div class="asiento">1030</div>
+            <div class="asiento">1029</div>
+            <div class="asiento">1028</div>
+            <div class="asiento">1027</div>
+            <div class="asiento">1026</div>
+            <div class="asiento">1025</div>
+            <div class="asiento">1024</div>
+            <div class="asiento">1023</div>
+            <div class="asiento">1022</div>
+            <div class="asiento">1021</div>
+            <div class="asiento">1020</div>
+            <div class="asiento">1019</div>
+            <div class="asiento">1018</div>
+            <div class="asiento">1017</div>
+            <div class="asiento">1016</div>
+            <div class="asiento">1015</div>
+            <div class="asiento">1014</div>
+            <div class="asiento">1013</div>
+            <div class="asiento">1012</div>
+            <div class="asiento">1011</div>
+            <div class="asiento">1010</div>
+            <div class="asiento">1009</div>
+            <div class="asiento">1008</div>
+            <div class="asiento">1007</div>
+            <div class="asiento">1006</div>
+            <div class="asiento">1005</div>
+            <div class="asiento">1004</div>
+            <div class="asiento">1003</div>
+            <div class="asiento">1002</div>
+            <div class="asiento">1001</div>
+            <div class="asiento">1000</div>
+            <div class="asiento">999</div>
+            <div class="asiento">998</div>
+            <div class="asiento">997</div>
+            <div class="asiento">996</div>
+            <div class="asiento">995</div>
+            <div class="asiento">994</div>
+            <div class="asiento">993</div>
+            <div class="asiento">992</div>
+          </div>
+          <!-- Fila 20 -->
+          <div class="fila" id="fila_izq">
+            <div class="asiento">1035</div>
+            <div class="asiento">1036</div>
+            <div class="asiento">1037</div>
+            <div class="asiento">1038</div>
+            <div class="asiento">1039</div>
+            <div class="asiento">1040</div>
+            <div class="asiento">1041</div>
+            <div class="asiento">1042</div>
+            <div class="asiento">1043</div>
+            <div class="asiento">1044</div>
+            <div class="asiento">1045</div>
+            <div class="asiento">1046</div>
+            <div class="asiento">1047</div>
+            <div class="asiento">1048</div>
+            <div class="asiento">1049</div>
+            <div class="asiento">1050</div>
+            <div class="asiento">1051</div>
+            <div class="asiento">1052</div>
+            <div class="asiento">1053</div>
+            <div class="asiento">1054</div>
+            <div class="asiento">1055</div>
+            <div class="asiento">1056</div>
+            <div class="asiento">1057</div>
+            <div class="asiento">1058</div>
+            <div class="asiento">1059</div>
+            <div class="asiento">1060</div>
+            <div class="asiento">1061</div>
+            <div class="asiento">1062</div>
+            <div class="asiento">1063</div>
+            <div class="asiento">1064</div>
+            <div class="asiento">1065</div>
+            <div class="asiento">1066</div>
+            <div class="asiento">1067</div>
+            <div class="asiento">1068</div>
+            <div class="asiento">1069</div>
+            <div class="asiento">1070</div>
+            <div class="asiento">1071</div>
+            <div class="asiento">1072</div>
+            <div class="asiento">1073</div>
+            <div class="asiento">1074</div>
+            <div class="asiento">1075</div>
+            <div class="asiento">1076</div>
+            <div class="asiento">1077</div>
+            <div class="asiento">1078</div>
+            <div class="asiento">1079</div>
+          </div>
+          <!-- Fila 21 -->
+          <div class="fila" id="fila_izq">
+            <div class="asiento">1220</div>
+            <div class="asiento">1219</div>
+            <div class="asiento">1218</div>
+            <div class="asiento">1217</div>
+            <div class="asiento">1216</div>
+            <div class="asiento">1215</div>
+            <div class="asiento">1214</div>
+            <div class="asiento">1213</div>
+            <div class="asiento">1212</div>
+            <div class="asiento">1211</div>
+            <div class="asiento">1210</div>
+            <div class="asiento">1209</div>
+            <div class="asiento">1208</div>
+            <div class="asiento">1207</div>
+            <div class="asiento">1206</div>
+            <div class="asiento">1205</div>
+            <div class="asiento">1204</div>
+            <div class="asiento">1203</div>
+            <div class="asiento">1202</div>
+            <div class="asiento">1201</div>
+            <div class="asiento">1200</div>
+            <div class="asiento">1199</div>
+            <div class="asiento">1198</div>
+            <div class="asiento">1197</div>
+            <div class="asiento">1196</div>
+            <div class="asiento">1195</div>
+            <div class="asiento">1194</div>
+            <div class="asiento">1193</div>
+            <div class="asiento">1192</div>
+            <div class="asiento">1191</div>
+            <div class="asiento">1190</div>
+            <div class="asiento">1189</div>
+            <div class="asiento">1188</div>
+            <div class="asiento">1187</div>
+            <div class="asiento">1186</div>
+            <div class="asiento">1185</div>
+            <div class="asiento">1184</div>
+            <div class="asiento">1183</div>
+            <div class="asiento">1182</div>
+            <div class="asiento">1181</div>
+            <div class="asiento">1180</div>
+            <div class="asiento">1179</div>
+            <div class="asiento">1178</div>
+            <div class="asiento">1177</div>
+            <div class="asiento">1176</div>
+            <div class="asiento">1175</div>
+            <div class="asiento">1174</div>
+          </div>
+          <!-- Fila 22 -->
+          <div class="fila" id="fila_izq">
+            <div class="asiento">1221</div>
+            <div class="asiento">1222</div>
+            <div class="asiento">1223</div>
+            <div class="asiento">1224</div>
+            <div class="asiento">1225</div>
+            <div class="asiento">1226</div>
+            <div class="asiento">1227</div>
+            <div class="asiento">1228</div>
+            <div class="asiento">1229</div>
+            <div class="asiento">1230</div>
+            <div class="asiento">1231</div>
+            <div class="asiento">1232</div>
+            <div class="asiento">1233</div>
+            <div class="asiento">1234</div>
+            <div class="asiento">1235</div>
+            <div class="asiento">1236</div>
+            <div class="asiento">1237</div>
+            <div class="asiento">1238</div>
+            <div class="asiento">1239</div>
+            <div class="asiento">1240</div>
+            <div class="asiento">1241</div>
+            <div class="asiento">1242</div>
+            <div class="asiento">1243</div>
+            <div class="asiento">1244</div>
+            <div class="asiento">1245</div>
+            <div class="asiento">1246</div>
+            <div class="asiento">1247</div>
+            <div class="asiento">1248</div>
+            <div class="asiento">1249</div>
+            <div class="asiento">1250</div>
+            <div class="asiento">1251</div>
+            <div class="asiento">1252</div>
+            <div class="asiento">1253</div>
+            <div class="asiento">1254</div>
+            <div class="asiento">1255</div>
+            <div class="asiento">1256</div>
+            <div class="asiento">1257</div>
+            <div class="asiento">1258</div>
+            <div class="asiento">1259</div>
+            <div class="asiento">1260</div>
+            <div class="asiento">1261</div>
+            <div class="asiento">1262</div>
+            <div class="asiento">1263</div>
+            <div class="asiento">1264</div>
+            <div class="asiento">1265</div>
+            <div class="asiento">1266</div>
+            <div class="asiento">1267</div>
+            <div class="asiento">1268</div>
+            <div class="asiento">1269</div>
+          </div>
+          <!-- Fila 23 -->
+          <div class="fila" id="fila_izq">
+            <div class="asiento">1422</div>
+            <div class="asiento">1421</div>
+            <div class="asiento">1420</div>
+            <div class="asiento">1419</div>
+            <div class="asiento">1418</div>
+            <div class="asiento">1417</div>
+            <div class="asiento">1416</div>
+            <div class="asiento">1415</div>
+            <div class="asiento">1414</div>
+            <div class="asiento">1413</div>
+            <div class="asiento">1412</div>
+            <div class="asiento">1411</div>
+            <div class="asiento">1410</div>
+            <div class="asiento">1409</div>
+            <div class="asiento">1408</div>
+            <div class="asiento">1407</div>
+            <div class="asiento">1406</div>
+            <div class="asiento">1405</div>
+            <div class="asiento">1404</div>
+            <div class="asiento">1403</div>
+            <div class="asiento">1402</div>
+            <div class="asiento">1401</div>
+            <div class="asiento">1400</div>
+            <div class="asiento">1399</div>
+            <div class="asiento">1398</div>
+            <div class="asiento">1397</div>
+            <div class="asiento">1396</div>
+            <div class="asiento">1395</div>
+            <div class="asiento">1394</div>
+            <div class="asiento">1393</div>
+            <div class="asiento">1392</div>
+            <div class="asiento">1391</div>
+            <div class="asiento">1390</div>
+            <div class="asiento">1389</div>
+            <div class="asiento">1388</div>
+            <div class="asiento">1387</div>
+            <div class="asiento">1386</div>
+            <div class="asiento">1385</div>
+            <div class="asiento">1384</div>
+            <div class="asiento">1383</div>
+            <div class="asiento">1382</div>
+            <div class="asiento">1381</div>
+            <div class="asiento">1380</div>
+            <div class="asiento">1379</div>
+            <div class="asiento">1378</div>
+            <div class="asiento">1377</div>
+            <div class="asiento">1376</div>
+            <div class="asiento">1375</div>
+            <div class="asiento">1374</div>
+            <div class="asiento">1373</div>
+            <div class="asiento">1372</div>
+          </div>
+          <!-- Fila 24 -->
+          <div class="fila" id="fila_izq">
+            <div class="asiento deshabilitado">1423</div>
+            <div class="asiento deshabilitado">1424</div>
+            <div class="asiento deshabilitado">1425</div>
+            <div class="asiento deshabilitado">1426</div>
+            <div class="asiento">1427</div>
+            <div class="asiento">1428</div>
+            <div class="asiento">1429</div>
+            <div class="asiento">1430</div>
+            <div class="asiento">1431</div>
+            <div class="asiento">1432</div>
+            <div class="asiento">1433</div>
+            <div class="asiento">1434</div>
+            <div class="asiento">1435</div>
+            <div class="asiento">1436</div>
+            <div class="asiento">1437</div>
+            <div class="asiento">1438</div>
+            <div class="asiento">1439</div>
+            <div class="asiento">1440</div>
+            <div class="asiento">1441</div>
+            <div class="asiento">1442</div>
+            <div class="asiento">1443</div>
+            <div class="asiento">1444</div>
+            <div class="asiento">1445</div>
+            <div class="asiento">1446</div>
+            <div class="asiento">1447</div>
+            <div class="asiento">1448</div>
+            <div class="asiento">1449</div>
+            <div class="asiento">1450</div>
+            <div class="asiento">1451</div>
+            <div class="asiento">1452</div>
+            <div class="asiento">1453</div>
+            <div class="asiento">1454</div>
+            <div class="asiento">1455</div>
+            <div class="asiento">1456</div>
+            <div class="asiento">1457</div>
+            <div class="asiento">1458</div>
+            <div class="asiento">1459</div>
+            <div class="asiento">1460</div>
+            <div class="asiento">1461</div>
+            <div class="asiento">1462</div>
+            <div class="asiento">1463</div>
+            <div class="asiento">1464</div>
+            <div class="asiento">1465</div>
+            <div class="asiento">1466</div>
+            <div class="asiento">1467</div>
+            <div class="asiento">1468</div>
+            <div class="asiento">1469</div>
+            <div class="asiento">1470</div>
+            <div class="asiento">1471</div>
+            <div class="asiento deshabilitado">1472</div>
+            <div class="asiento deshabilitado">1473</div>
+            <div class="asiento deshabilitado">1474</div>
+            <div class="asiento deshabilitado">1475</div>
+          </div>
+          <!-- Fila 25 -->
+          <div class="fila" id="fila_izq">
+            <div class="asiento">1640</div>
+            <div class="asiento">1639</div>
+            <div class="asiento">1638</div>
+            <div class="asiento">1637</div>
+            <div class="asiento">1636</div>
+            <div class="asiento">1635</div>
+            <div class="asiento">1634</div>
+            <div class="asiento">1633</div>
+            <div class="asiento">1632</div>
+            <div class="asiento">1631</div>
+            <div class="asiento">1630</div>
+            <div class="asiento">1629</div>
+            <div class="asiento">1628</div>
+            <div class="asiento">1627</div>
+            <div class="asiento">1626</div>
+            <div class="asiento">1625</div>
+            <div class="asiento">1624</div>
+            <div class="asiento">1623</div>
+            <div class="asiento">1622</div>
+            <div class="asiento">1621</div>
+            <div class="asiento">1620</div>
+            <div class="asiento">1619</div>
+            <div class="asiento">1618</div>
+            <div class="asiento">1617</div>
+            <div class="asiento">1616</div>
+            <div class="asiento">1615</div>
+            <div class="asiento">1614</div>
+            <div class="asiento">1613</div>
+            <div class="asiento">1612</div>
+            <div class="asiento">1611</div>
+            <div class="asiento">1610</div>
+            <div class="asiento">1609</div>
+            <div class="asiento">1608</div>
+            <div class="asiento">1607</div>
+            <div class="asiento">1606</div>
+            <div class="asiento">1605</div>
+            <div class="asiento">1604</div>
+            <div class="asiento">1603</div>
+            <div class="asiento">1602</div>
+            <div class="asiento">1601</div>
+            <div class="asiento">1600</div>
+            <div class="asiento">1599</div>
+            <div class="asiento">1598</div>
+            <div class="asiento">1597</div>
+            <div class="asiento">1596</div>
+            <div class="asiento">1595</div>
+            <div class="asiento">1594</div>
+            <div class="asiento">1593</div>
+            <div class="asiento">1592</div>
+            <div class="asiento">1591</div>
+            <div class="asiento">1590</div>
+            <div class="asiento deshabilitado">1589</div>
+            <div class="asiento deshabilitado">1588</div>
+            <div class="asiento deshabilitado">1587</div>
+            <div class="asiento deshabilitado">1586</div>
+          </div>
+        </div>
+
+        <div class="columna2" id="col-der" style="display:none;">
+          <!-- Fila 2 -->
+          <div class="fila" id="fila">
+            <div class="asiento">33</div>
+            <div class="asiento">34</div>
+            <div class="asiento">35</div>
+            <div class="asiento">36</div>
+            <div class="asiento">37</div>
+            <div class="asiento">38</div>
+            <div class="asiento">39</div>
+            <div class="asiento">40</div>
+            <div class="asiento">41</div>
+            <div class="asiento">42</div>
+            <div class="asiento">43</div>
+            <div class="asiento">44</div>
+          </div>
+          <!-- Fila 3 -->
+          <div class="fila" id="fila">
+            <div class="asiento">58</div>
+            <div class="asiento">57</div>
+            <div class="asiento">56</div>
+            <div class="asiento">55</div>
+            <div class="asiento">54</div>
+            <div class="asiento">53</div>
+            <div class="asiento">52</div>
+            <div class="asiento">51</div>
+            <div class="asiento">50</div>
+            <div class="asiento">49</div>
+            <div class="asiento">48</div>
+            <div class="asiento">47</div>
+            <div class="asiento">46</div>
+            <div class="asiento">45</div>
+          </div>
+          <!-- Fila 4 -->
+          <div class="fila" id="fila">
+            <div class="asiento">89</div>
+            <div class="asiento">90</div>
+            <div class="asiento">91</div>
+            <div class="asiento">92</div>
+            <div class="asiento">93</div>
+            <div class="asiento">94</div>
+            <div class="asiento">95</div>
+            <div class="asiento">96</div>
+            <div class="asiento">97</div>
+            <div class="asiento">98</div>
+            <div class="asiento">99</div>
+            <div class="asiento">100</div>
+            <div class="asiento">101</div>
+            <div class="asiento">102</div>
+            <div class="asiento">103</div>
+            <div class="asiento">104</div>
+          </div>
+          <!-- Fila 5 -->
+          <div class="fila" id="fila">
+            <div class="asiento">122</div>
+            <div class="asiento">121</div>
+            <div class="asiento">120</div>
+            <div class="asiento">119</div>
+            <div class="asiento">118</div>
+            <div class="asiento">117</div>
+            <div class="asiento">116</div>
+            <div class="asiento">115</div>
+            <div class="asiento">114</div>
+            <div class="asiento">113</div>
+            <div class="asiento">112</div>
+            <div class="asiento">111</div>
+            <div class="asiento">110</div>
+            <div class="asiento">109</div>
+            <div class="asiento">108</div>
+            <div class="asiento">107</div>
+            <div class="asiento">106</div>
+            <div class="asiento">105</div>
+          </div>
+          <!-- Fila 6 -->
+          <div class="fila" id="fila">
+            <div class="asiento">161</div>
+            <div class="asiento">162</div>
+            <div class="asiento">163</div>
+            <div class="asiento">164</div>
+            <div class="asiento">165</div>
+            <div class="asiento">166</div>
+            <div class="asiento">167</div>
+            <div class="asiento">168</div>
+            <div class="asiento">169</div>
+            <div class="asiento">170</div>
+            <div class="asiento">171</div>
+            <div class="asiento">172</div>
+            <div class="asiento">173</div>
+            <div class="asiento">174</div>
+            <div class="asiento">175</div>
+            <div class="asiento">176</div>
+            <div class="asiento">177</div>
+            <div class="asiento">178</div>
+            <div class="asiento">179</div>
+            <div class="asiento">180</div>
+          </div>
+          <!-- Fila 7 -->
+          <div class="fila" id="fila">
+            <div class="asiento">202</div>
+            <div class="asiento">201</div>
+            <div class="asiento">200</div>
+            <div class="asiento">199</div>
+            <div class="asiento">198</div>
+            <div class="asiento">197</div>
+            <div class="asiento">196</div>
+            <div class="asiento">195</div>
+            <div class="asiento">194</div>
+            <div class="asiento">193</div>
+            <div class="asiento">192</div>
+            <div class="asiento">191</div>
+            <div class="asiento">190</div>
+            <div class="asiento">189</div>
+            <div class="asiento">188</div>
+            <div class="asiento">187</div>
+            <div class="asiento">186</div>
+            <div class="asiento">185</div>
+            <div class="asiento">184</div>
+            <div class="asiento">183</div>
+            <div class="asiento">182</div>
+            <div class="asiento">181</div>
+          </div>
+          <!-- Fila 8 -->
+          <div class="fila" id="fila">
+            <div class="asiento">249</div>
+            <div class="asiento">250</div>
+            <div class="asiento">251</div>
+            <div class="asiento">252</div>
+            <div class="asiento">253</div>
+            <div class="asiento">254</div>
+            <div class="asiento">255</div>
+            <div class="asiento">256</div>
+            <div class="asiento">257</div>
+            <div class="asiento">258</div>
+            <div class="asiento">259</div>
+            <div class="asiento">260</div>
+            <div class="asiento">261</div>
+            <div class="asiento">262</div>
+            <div class="asiento">263</div>
+            <div class="asiento">264</div>
+            <div class="asiento">265</div>
+            <div class="asiento">266</div>
+            <div class="asiento">267</div>
+            <div class="asiento">268</div>
+            <div class="asiento">269</div>
+            <div class="asiento">270</div>
+            <div class="asiento">271</div>
+            <div class="asiento">272</div>
+          </div>
+          <!-- Fila 9 -->
+          <div class="fila" id="fila">
+            <div class="asiento">298</div>
+            <div class="asiento">297</div>
+            <div class="asiento">296</div>
+            <div class="asiento">295</div>
+            <div class="asiento">294</div>
+            <div class="asiento">293</div>
+            <div class="asiento">292</div>
+            <div class="asiento">291</div>
+            <div class="asiento">290</div>
+            <div class="asiento">289</div>
+            <div class="asiento">288</div>
+            <div class="asiento">287</div>
+            <div class="asiento">286</div>
+            <div class="asiento">285</div>
+            <div class="asiento">284</div>
+            <div class="asiento">283</div>
+            <div class="asiento">282</div>
+            <div class="asiento">281</div>
+            <div class="asiento">280</div>
+            <div class="asiento">279</div>
+            <div class="asiento">278</div>
+            <div class="asiento">277</div>
+            <div class="asiento">276</div>
+            <div class="asiento">275</div>
+            <div class="asiento">274</div>
+            <div class="asiento">273</div>
+          </div>
+          <!-- Fila 10 -->
+          <div class="fila" id="fila">
+            <div class="asiento">353</div>
+            <div class="asiento">354</div>
+            <div class="asiento">355</div>
+            <div class="asiento">356</div>
+            <div class="asiento">357</div>
+            <div class="asiento">358</div>
+            <div class="asiento">359</div>
+            <div class="asiento">360</div>
+            <div class="asiento">361</div>
+            <div class="asiento">362</div>
+            <div class="asiento">363</div>
+            <div class="asiento">364</div>
+            <div class="asiento">365</div>
+            <div class="asiento">366</div>
+            <div class="asiento">367</div>
+            <div class="asiento">368</div>
+            <div class="asiento">369</div>
+            <div class="asiento">370</div>
+            <div class="asiento">371</div>
+            <div class="asiento">372</div>
+            <div class="asiento">373</div>
+            <div class="asiento">374</div>
+            <div class="asiento">375</div>
+            <div class="asiento">376</div>
+            <div class="asiento">377</div>
+            <div class="asiento">378</div>
+            <div class="asiento">379</div>
+            <div class="asiento">380</div>
+          </div>
+          <!-- Fila 11 -->
+          <div class="fila" id="fila">
+            <div class="asiento">410</div>
+            <div class="asiento">409</div>
+            <div class="asiento">408</div>
+            <div class="asiento">407</div>
+            <div class="asiento">406</div>
+            <div class="asiento">405</div>
+            <div class="asiento">404</div>
+            <div class="asiento">403</div>
+            <div class="asiento">402</div>
+            <div class="asiento">401</div>
+            <div class="asiento">400</div>
+            <div class="asiento">399</div>
+            <div class="asiento">398</div>
+            <div class="asiento">397</div>
+            <div class="asiento">396</div>
+            <div class="asiento">395</div>
+            <div class="asiento">394</div>
+            <div class="asiento">393</div>
+            <div class="asiento">392</div>
+            <div class="asiento">391</div>
+            <div class="asiento">390</div>
+            <div class="asiento">389</div>
+            <div class="asiento">388</div>
+            <div class="asiento">387</div>
+            <div class="asiento">386</div>
+            <div class="asiento">385</div>
+            <div class="asiento">384</div>
+            <div class="asiento">383</div>
+            <div class="asiento">382</div>
+            <div class="asiento">381</div>
+          </div>
+          <!-- Fila 12 -->
+          <div class="fila" id="fila">
+            <div class="asiento">473</div>
+            <div class="asiento">474</div>
+            <div class="asiento">475</div>
+            <div class="asiento">476</div>
+            <div class="asiento">477</div>
+            <div class="asiento">478</div>
+            <div class="asiento">479</div>
+            <div class="asiento">480</div>
+            <div class="asiento">481</div>
+            <div class="asiento">482</div>
+            <div class="asiento">483</div>
+            <div class="asiento">484</div>
+            <div class="asiento">485</div>
+            <div class="asiento">486</div>
+            <div class="asiento">487</div>
+            <div class="asiento">488</div>
+            <div class="asiento">489</div>
+            <div class="asiento">490</div>
+            <div class="asiento">491</div>
+            <div class="asiento">492</div>
+            <div class="asiento">493</div>
+            <div class="asiento">494</div>
+            <div class="asiento">495</div>
+            <div class="asiento">496</div>
+            <div class="asiento">497</div>
+            <div class="asiento">498</div>
+            <div class="asiento">499</div>
+            <div class="asiento">500</div>
+            <div class="asiento">501</div>
+            <div class="asiento">502</div>
+            <div class="asiento">503</div>
+            <div class="asiento">504</div>
+          </div>
+          <!-- Fila 13 -->
+          <div class="fila" id="fila">
+            <div class="asiento">538</div>
+            <div class="asiento">537</div>
+            <div class="asiento">536</div>
+            <div class="asiento">535</div>
+            <div class="asiento">534</div>
+            <div class="asiento">533</div>
+            <div class="asiento">532</div>
+            <div class="asiento">531</div>
+            <div class="asiento">530</div>
+            <div class="asiento">529</div>
+            <div class="asiento">528</div>
+            <div class="asiento">527</div>
+            <div class="asiento">526</div>
+            <div class="asiento">525</div>
+            <div class="asiento">524</div>
+            <div class="asiento">523</div>
+            <div class="asiento">522</div>
+            <div class="asiento">521</div>
+            <div class="asiento">520</div>
+            <div class="asiento">519</div>
+            <div class="asiento">518</div>
+            <div class="asiento">517</div>
+            <div class="asiento">516</div>
+            <div class="asiento">515</div>
+            <div class="asiento">514</div>
+            <div class="asiento">513</div>
+            <div class="asiento">512</div>
+            <div class="asiento">511</div>
+            <div class="asiento">510</div>
+            <div class="asiento">509</div>
+            <div class="asiento">508</div>
+            <div class="asiento">507</div>
+            <div class="asiento">506</div>
+            <div class="asiento">505</div>
+          </div>
+          <!-- Fila 14 -->
+          <div class="fila" id="fila_der">
+            <div class="asiento">606</div>
+            <div class="asiento">607</div>
+            <div class="asiento">608</div>
+            <div class="asiento">609</div>
+            <div class="asiento">610</div>
+            <div class="asiento">611</div>
+            <div class="asiento">612</div>
+            <div class="asiento">613</div>
+            <div class="asiento">614</div>
+            <div class="asiento">615</div>
+            <div class="asiento">616</div>
+            <div class="asiento">617</div>
+            <div class="asiento">618</div>
+            <div class="asiento">619</div>
+            <div class="asiento">620</div>
+            <div class="asiento">621</div>
+            <div class="asiento">622</div>
+            <div class="asiento">623</div>
+            <div class="asiento">624</div>
+            <div class="asiento">625</div>
+            <div class="asiento">626</div>
+            <div class="asiento">627</div>
+            <div class="asiento">628</div>
+            <div class="asiento">629</div>
+            <div class="asiento">630</div>
+            <div class="asiento">631</div>
+            <div class="asiento">632</div>
+            <div class="asiento">633</div>
+            <div class="asiento">634</div>
+            <div class="asiento">635</div>
+            <div class="asiento">636</div>
+            <div class="asiento">637</div>
+            <div class="asiento">638</div>
+            <div class="asiento">639</div>
+          </div>
+          <!-- Fila 15 -->
+          <div class="fila" id="fila_der">
+            <div class="asiento">675</div>
+            <div class="asiento">674</div>
+            <div class="asiento">673</div>
+            <div class="asiento">672</div>
+            <div class="asiento">671</div>
+            <div class="asiento">670</div>
+            <div class="asiento">669</div>
+            <div class="asiento">668</div>
+            <div class="asiento">667</div>
+            <div class="asiento">666</div>
+            <div class="asiento">665</div>
+            <div class="asiento">664</div>
+            <div class="asiento">663</div>
+            <div class="asiento">662</div>
+            <div class="asiento">661</div>
+            <div class="asiento">660</div>
+            <div class="asiento">659</div>
+            <div class="asiento">658</div>
+            <div class="asiento">657</div>
+            <div class="asiento">656</div>
+            <div class="asiento">655</div>
+            <div class="asiento">654</div>
+            <div class="asiento">653</div>
+            <div class="asiento">652</div>
+            <div class="asiento">651</div>
+            <div class="asiento">650</div>
+            <div class="asiento">649</div>
+            <div class="asiento">648</div>
+            <div class="asiento">647</div>
+            <div class="asiento">646</div>
+            <div class="asiento">645</div>
+            <div class="asiento">644</div>
+            <div class="asiento">643</div>
+            <div class="asiento">642</div>
+            <div class="asiento">641</div>
+            <div class="asiento">640</div>
+          </div>
+          <!-- Fila 16 -->
+          <div class="fila" id="fila_der">
+            <div class="asiento">	748	</div>
+            <div class="asiento">	749	</div>
+            <div class="asiento">	750	</div>
+            <div class="asiento">	751	</div>
+            <div class="asiento">	752	</div>
+            <div class="asiento">	753	</div>
+            <div class="asiento">	754	</div>
+            <div class="asiento">	755	</div>
+            <div class="asiento">	756	</div>
+            <div class="asiento">	757	</div>
+            <div class="asiento">	758	</div>
+            <div class="asiento">	759	</div>
+            <div class="asiento">	760	</div>
+            <div class="asiento">	761	</div>
+            <div class="asiento">	762	</div>
+            <div class="asiento">	763	</div>
+            <div class="asiento">	764	</div>
+            <div class="asiento">	765	</div>
+            <div class="asiento">	766	</div>
+            <div class="asiento">	767	</div>
+            <div class="asiento">	768	</div>
+            <div class="asiento">	769	</div>
+            <div class="asiento">	770	</div>
+            <div class="asiento">	771	</div>
+            <div class="asiento">	772	</div>
+            <div class="asiento">	773	</div>
+            <div class="asiento">	774	</div>
+            <div class="asiento">	775	</div>
+            <div class="asiento">	776	</div>
+            <div class="asiento">	777	</div>
+            <div class="asiento">	778	</div>
+            <div class="asiento">	779	</div>
+            <div class="asiento">	780	</div>
+            <div class="asiento">	781	</div>
+            <div class="asiento">	782	</div>
+            <div class="asiento">	783	</div>
+            <div class="asiento">	784	</div>
+            <div class="asiento">	785	</div>
+          </div>
+          <!-- Fila 17 -->
+          <div class="fila" id="fila_der">
+            <div class="asiento">	825	</div>
+            <div class="asiento">	824	</div>
+            <div class="asiento">	823	</div>
+            <div class="asiento">	822	</div>
+            <div class="asiento">	821	</div>
+            <div class="asiento">	820	</div>
+            <div class="asiento">	819	</div>
+            <div class="asiento">	818	</div>
+            <div class="asiento">	817	</div>
+            <div class="asiento">	816	</div>
+            <div class="asiento">	815	</div>
+            <div class="asiento">	814	</div>
+            <div class="asiento">	813	</div>
+            <div class="asiento">	812	</div>
+            <div class="asiento">	811	</div>
+            <div class="asiento">	810	</div>
+            <div class="asiento">	809	</div>
+            <div class="asiento">	808	</div>
+            <div class="asiento">	807	</div>
+            <div class="asiento">	806	</div>
+            <div class="asiento">	805	</div>
+            <div class="asiento">	804	</div>
+            <div class="asiento">	803	</div>
+            <div class="asiento">	802	</div>
+            <div class="asiento">	801	</div>
+            <div class="asiento">	800	</div>
+            <div class="asiento">	799	</div>
+            <div class="asiento">	798	</div>
+            <div class="asiento">	797	</div>
+            <div class="asiento">	796	</div>
+            <div class="asiento">	795	</div>
+            <div class="asiento">	794	</div>
+            <div class="asiento">	793	</div>
+            <div class="asiento">	792	</div>
+            <div class="asiento">	791	</div>
+            <div class="asiento">	790	</div>
+            <div class="asiento">	789	</div>
+            <div class="asiento">	788	</div>
+            <div class="asiento">	787	</div>
+            <div class="asiento">	786	</div>
+          </div>
+          <!-- Fila 18 -->
+          <div class="fila" id="fila_der">
+            <div class="asiento">	906	</div>
+            <div class="asiento">	907	</div>
+            <div class="asiento">	908	</div>
+            <div class="asiento">	909	</div>
+            <div class="asiento">	910	</div>
+            <div class="asiento">	911	</div>
+            <div class="asiento">	912	</div>
+            <div class="asiento">	913	</div>
+            <div class="asiento">	914	</div>
+            <div class="asiento">	915	</div>
+            <div class="asiento">	916	</div>
+            <div class="asiento">	917	</div>
+            <div class="asiento">	918	</div>
+            <div class="asiento">	919	</div>
+            <div class="asiento">	920	</div>
+            <div class="asiento">	921	</div>
+            <div class="asiento">	922	</div>
+            <div class="asiento">	923	</div>
+            <div class="asiento">	924	</div>
+            <div class="asiento">	925	</div>
+            <div class="asiento">	926	</div>
+            <div class="asiento">	927	</div>
+            <div class="asiento">	928	</div>
+            <div class="asiento">	929	</div>
+            <div class="asiento">	930	</div>
+            <div class="asiento">	931	</div>
+            <div class="asiento">	932	</div>
+            <div class="asiento">	933	</div>
+            <div class="asiento">	934	</div>
+            <div class="asiento">	935	</div>
+            <div class="asiento">	936	</div>
+            <div class="asiento">	937	</div>
+            <div class="asiento">	938	</div>
+            <div class="asiento">	939	</div>
+            <div class="asiento">	940	</div>
+            <div class="asiento">	941	</div>
+            <div class="asiento">	942	</div>
+            <div class="asiento">	943	</div>
+            <div class="asiento">	944	</div>
+            <div class="asiento">	945	</div>
+            <div class="asiento">	946	</div>
+            <div class="asiento">	947	</div>
+          </div>
+          <!-- Fila 19 -->
+          <div class="fila" id="fila_der">
+            <div class="asiento">991</div>
+            <div class="asiento">990</div>
+            <div class="asiento">989</div>
+            <div class="asiento">988</div>
+            <div class="asiento">987</div>
+            <div class="asiento">986</div>
+            <div class="asiento">985</div>
+            <div class="asiento">984</div>
+            <div class="asiento">983</div>
+            <div class="asiento">982</div>
+            <div class="asiento">981</div>
+            <div class="asiento">980</div>
+            <div class="asiento">979</div>
+            <div class="asiento">978</div>
+            <div class="asiento">977</div>
+            <div class="asiento">976</div>
+            <div class="asiento">975</div>
+            <div class="asiento">974</div>
+            <div class="asiento">973</div>
+            <div class="asiento">972</div>
+            <div class="asiento">971</div>
+            <div class="asiento">970</div>
+            <div class="asiento">969</div>
+            <div class="asiento">968</div>
+            <div class="asiento">967</div>
+            <div class="asiento">966</div>
+            <div class="asiento">965</div>
+            <div class="asiento">964</div>
+            <div class="asiento">963</div>
+            <div class="asiento">962</div>
+            <div class="asiento">961</div>
+            <div class="asiento">960</div>
+            <div class="asiento">959</div>
+            <div class="asiento">958</div>
+            <div class="asiento">957</div>
+            <div class="asiento">956</div>
+            <div class="asiento">955</div>
+            <div class="asiento">954</div>
+            <div class="asiento">953</div>
+            <div class="asiento">952</div>
+            <div class="asiento">951</div>
+            <div class="asiento">950</div>
+            <div class="asiento">949</div>
+            <div class="asiento">948</div>
+          </div>
+          <!-- Fila 20 -->
+          <div class="fila" id="fila_der">
+            <div class="asiento">1080</div>
+            <div class="asiento">1081</div>
+            <div class="asiento">1082</div>
+            <div class="asiento">1083</div>
+            <div class="asiento">1084</div>
+            <div class="asiento">1085</div>
+            <div class="asiento">1086</div>
+            <div class="asiento">1087</div>
+            <div class="asiento">1088</div>
+            <div class="asiento">1089</div>
+            <div class="asiento">1090</div>
+            <div class="asiento">1091</div>
+            <div class="asiento">1092</div>
+            <div class="asiento">1093</div>
+            <div class="asiento">1094</div>
+            <div class="asiento">1095</div>
+            <div class="asiento">1096</div>
+            <div class="asiento">1097</div>
+            <div class="asiento">1098</div>
+            <div class="asiento">1099</div>
+            <div class="asiento">1100</div>
+            <div class="asiento">1101</div>
+            <div class="asiento">1102</div>
+            <div class="asiento">1103</div>
+            <div class="asiento">1104</div>
+            <div class="asiento">1105</div>
+            <div class="asiento">1106</div>
+            <div class="asiento">1107</div>
+            <div class="asiento">1108</div>
+            <div class="asiento">1109</div>
+            <div class="asiento">1110</div>
+            <div class="asiento">1111</div>
+            <div class="asiento">1112</div>
+            <div class="asiento">1113</div>
+            <div class="asiento">1114</div>
+            <div class="asiento">1115</div>
+            <div class="asiento">1116</div>
+            <div class="asiento">1117</div>
+            <div class="asiento">1118</div>
+            <div class="asiento">1119</div>
+            <div class="asiento">1120</div>
+            <div class="asiento">1121</div>
+            <div class="asiento">1122</div>
+            <div class="asiento">1123</div>
+            <div class="asiento">1124</div>
+            <div class="asiento">1125</div>
+          </div>
+          <!-- Fila 21 -->
+          <div class="fila" id="fila_der">
+            <div class="asiento">1173</div>
+            <div class="asiento">1172</div>
+            <div class="asiento">1171</div>
+            <div class="asiento">1170</div>
+            <div class="asiento">1169</div>
+            <div class="asiento">1168</div>
+            <div class="asiento">1167</div>
+            <div class="asiento">1166</div>
+            <div class="asiento">1165</div>
+            <div class="asiento">1164</div>
+            <div class="asiento">1163</div>
+            <div class="asiento">1162</div>
+            <div class="asiento">1161</div>
+            <div class="asiento">1160</div>
+            <div class="asiento">1159</div>
+            <div class="asiento">1158</div>
+            <div class="asiento">1157</div>
+            <div class="asiento">1156</div>
+            <div class="asiento">1155</div>
+            <div class="asiento">1154</div>
+            <div class="asiento">1153</div>
+            <div class="asiento">1152</div>
+            <div class="asiento">1151</div>
+            <div class="asiento">1150</div>
+            <div class="asiento">1149</div>
+            <div class="asiento">1148</div>
+            <div class="asiento">1147</div>
+            <div class="asiento">1146</div>
+            <div class="asiento">1145</div>
+            <div class="asiento">1144</div>
+            <div class="asiento">1143</div>
+            <div class="asiento">1142</div>
+            <div class="asiento">1141</div>
+            <div class="asiento">1140</div>
+            <div class="asiento">1139</div>
+            <div class="asiento">1138</div>
+            <div class="asiento">1137</div>
+            <div class="asiento">1136</div>
+            <div class="asiento">1135</div>
+            <div class="asiento">1134</div>
+            <div class="asiento">1133</div>
+            <div class="asiento">1132</div>
+            <div class="asiento">1131</div>
+            <div class="asiento">1130</div>
+            <div class="asiento">1129</div>
+            <div class="asiento">1128</div>
+            <div class="asiento">1127</div>
+            <div class="asiento">1126</div>
+          </div>
+          <!-- Fila 22 -->
+          <div class="fila" id="fila_der">
+            <div class="asiento">1270</div>
+            <div class="asiento">1271</div>
+            <div class="asiento">1272</div>
+            <div class="asiento">1273</div>
+            <div class="asiento">1274</div>
+            <div class="asiento">1275</div>
+            <div class="asiento">1276</div>
+            <div class="asiento">1277</div>
+            <div class="asiento">1278</div>
+            <div class="asiento">1279</div>
+            <div class="asiento">1280</div>
+            <div class="asiento">1281</div>
+            <div class="asiento">1282</div>
+            <div class="asiento">1283</div>
+            <div class="asiento">1284</div>
+            <div class="asiento">1285</div>
+            <div class="asiento">1286</div>
+            <div class="asiento">1287</div>
+            <div class="asiento">1288</div>
+            <div class="asiento">1289</div>
+            <div class="asiento">1290</div>
+            <div class="asiento">1291</div>
+            <div class="asiento">1292</div>
+            <div class="asiento">1293</div>
+            <div class="asiento">1294</div>
+            <div class="asiento">1295</div>
+            <div class="asiento">1296</div>
+            <div class="asiento">1297</div>
+            <div class="asiento">1298</div>
+            <div class="asiento">1299</div>
+            <div class="asiento">1300</div>
+            <div class="asiento">1301</div>
+            <div class="asiento">1302</div>
+            <div class="asiento">1303</div>
+            <div class="asiento">1304</div>
+            <div class="asiento">1305</div>
+            <div class="asiento">1306</div>
+            <div class="asiento">1307</div>
+            <div class="asiento">1308</div>
+            <div class="asiento">1309</div>
+            <div class="asiento">1310</div>
+            <div class="asiento">1311</div>
+            <div class="asiento">1312</div>
+            <div class="asiento">1313</div>
+            <div class="asiento">1314</div>
+            <div class="asiento">1315</div>
+            <div class="asiento">1316</div>
+            <div class="asiento">1317</div>
+            <div class="asiento">1318</div>
+            <div class="asiento">1319</div>
+          </div>
+          <!-- Fila 23 -->
+          <div class="fila" id="fila_der">
+            <div class="asiento">1371</div>
+            <div class="asiento">1370</div>
+            <div class="asiento">1369</div>
+            <div class="asiento">1368</div>
+            <div class="asiento">1367</div>
+            <div class="asiento">1366</div>
+            <div class="asiento">1365</div>
+            <div class="asiento">1364</div>
+            <div class="asiento">1363</div>
+            <div class="asiento">1362</div>
+            <div class="asiento">1361</div>
+            <div class="asiento">1360</div>
+            <div class="asiento">1359</div>
+            <div class="asiento">1358</div>
+            <div class="asiento">1357</div>
+            <div class="asiento">1356</div>
+            <div class="asiento">1355</div>
+            <div class="asiento">1354</div>
+            <div class="asiento">1353</div>
+            <div class="asiento">1352</div>
+            <div class="asiento">1351</div>
+            <div class="asiento">1350</div>
+            <div class="asiento">1349</div>
+            <div class="asiento">1348</div>
+            <div class="asiento">1347</div>
+            <div class="asiento">1346</div>
+            <div class="asiento">1345</div>
+            <div class="asiento">1344</div>
+            <div class="asiento">1343</div>
+            <div class="asiento">1342</div>
+            <div class="asiento">1341</div>
+            <div class="asiento">1340</div>
+            <div class="asiento">1339</div>
+            <div class="asiento">1338</div>
+            <div class="asiento">1337</div>
+            <div class="asiento">1336</div>
+            <div class="asiento">1335</div>
+            <div class="asiento">1334</div>
+            <div class="asiento">1333</div>
+            <div class="asiento">1332</div>
+            <div class="asiento">1331</div>
+            <div class="asiento">1330</div>
+            <div class="asiento">1329</div>
+            <div class="asiento">1328</div>
+            <div class="asiento">1327</div>
+            <div class="asiento">1326</div>
+            <div class="asiento">1325</div>
+            <div class="asiento">1324</div>
+            <div class="asiento">1323</div>
+            <div class="asiento">1322</div>
+            <div class="asiento">1321</div>
+            <div class="asiento">1320</div>
+          </div>
+          <!-- Fila 24 -->
+          <div class="fila" id="fila_der">
+            <div class="asiento deshabilitado">1476</div>
+            <div class="asiento deshabilitado">1477</div>
+            <div class="asiento deshabilitado">1478</div>
+            <div class="asiento deshabilitado">1479</div>
+            <div class="asiento">1480</div>
+            <div class="asiento deshabilitado">1481</div>
+            <div class="asiento">1482</div>
+            <div class="asiento">1483</div>
+            <div class="asiento">1484</div>
+            <div class="asiento">1485</div>
+            <div class="asiento">1486</div>
+            <div class="asiento">1487</div>
+            <div class="asiento">1488</div>
+            <div class="asiento">1489</div>
+            <div class="asiento">1490</div>
+            <div class="asiento">1491</div>
+            <div class="asiento">1492</div>
+            <div class="asiento">1493</div>
+            <div class="asiento">1494</div>
+            <div class="asiento">1495</div>
+            <div class="asiento">1496</div>
+            <div class="asiento">1497</div>
+            <div class="asiento">1498</div>
+            <div class="asiento">1499</div>
+            <div class="asiento">1500</div>
+            <div class="asiento">1501</div>
+            <div class="asiento">1502</div>
+            <div class="asiento">1503</div>
+            <div class="asiento">1504</div>
+            <div class="asiento">1505</div>
+            <div class="asiento">1506</div>
+            <div class="asiento">1507</div>
+            <div class="asiento">1508</div>
+            <div class="asiento">1509</div>
+            <div class="asiento">1510</div>
+            <div class="asiento">1511</div>
+            <div class="asiento">1512</div>
+            <div class="asiento">1513</div>
+            <div class="asiento">1514</div>
+            <div class="asiento">1515</div>
+            <div class="asiento">1516</div>
+            <div class="asiento">1517</div>
+            <div class="asiento">1518</div>
+            <div class="asiento">1519</div>
+            <div class="asiento">1520</div>
+            <div class="asiento">1521</div>
+            <div class="asiento">1522</div>
+            <div class="asiento">1523</div>
+            <div class="asiento">1524</div>
+            <div class="asiento">1525</div>
+            <div class="asiento">1526</div>
+            <div class="asiento">1527</div>
+            <div class="asiento">1528</div>
+            <div class="asiento">1529</div>
+          </div>
+          <!-- Fila 25 -->
+          <div class="fila" id="fila_der">
+            <div class="asiento deshabilitado">1585</div>
+            <div class="asiento deshabilitado">1584</div>
+            <div class="asiento deshabilitado">1583</div>
+            <div class="asiento deshabilitado">1582</div>
+            <div class="asiento">1581</div>
+            <div class="asiento">1580</div>
+            <div class="asiento">1579</div>
+            <div class="asiento">1578</div>
+            <div class="asiento">1577</div>
+            <div class="asiento">1576</div>
+            <div class="asiento">1575</div>
+            <div class="asiento">1574</div>
+            <div class="asiento">1573</div>
+            <div class="asiento">1572</div>
+            <div class="asiento">1571</div>
+            <div class="asiento">1570</div>
+            <div class="asiento">1569</div>
+            <div class="asiento">1568</div>
+            <div class="asiento">1567</div>
+            <div class="asiento">1566</div>
+            <div class="asiento">1565</div>
+            <div class="asiento">1564</div>
+            <div class="asiento">1563</div>
+            <div class="asiento">1562</div>
+            <div class="asiento">1561</div>
+            <div class="asiento">1560</div>
+            <div class="asiento">1559</div>
+            <div class="asiento">1558</div>
+            <div class="asiento">1557</div>
+            <div class="asiento">1556</div>
+            <div class="asiento">1555</div>
+            <div class="asiento">1554</div>
+            <div class="asiento">1553</div>
+            <div class="asiento">1552</div>
+            <div class="asiento">1551</div>
+            <div class="asiento">1550</div>
+            <div class="asiento">1549</div>
+            <div class="asiento">1548</div>
+            <div class="asiento">1547</div>
+            <div class="asiento">1546</div>
+            <div class="asiento">1545</div>
+            <div class="asiento">1544</div>
+            <div class="asiento">1543</div>
+            <div class="asiento">1542</div>
+            <div class="asiento">1541</div>
+            <div class="asiento">1540</div>
+            <div class="asiento">1539</div>
+            <div class="asiento">1538</div>
+            <div class="asiento">1537</div>
+            <div class="asiento">1536</div>
+            <div class="asiento">1535</div>
+            <div class="asiento">1534</div>
+            <div class="asiento">1533</div>
+            <div class="asiento">1532</div>
+            <div class="asiento">1531</div>
+            <div class="asiento">1530</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </body>
+</html>
