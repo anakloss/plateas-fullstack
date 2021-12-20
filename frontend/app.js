@@ -21,11 +21,35 @@ const total = document.getElementById('total');
 
 getSelected();
 
-// Traer datos de localStorage
+
+// Actualizar selección de asientos y totales
+// function updateSelected() {
+//   const selectedSeats = document.querySelectorAll('.fila .asiento.ocupado')
+//   const selectedSeatsRes = document.querySelectorAll('.fila .asiento.reservado')
+//
+//   // // localStorage
+//   // const seatsIndex = [...selectedSeats].map(function (seat) {
+//   //   return [...seats].indexOf(seat)
+//   // })
+//   // const seatsResIndex = [...selectedSeatsRes].map(function (seat) {
+//   //   return [...seats].indexOf(seat)
+//   // })
+//   //
+//   // localStorage.setItem(date.value, JSON.stringify({
+//   //   'ocupado': seatsIndex,
+//   //   'reservado': seatsResIndex,
+//   //   }))
+//
+//   // Cant de asientos seleccionados
+//   count.innerText = selectedSeats.length
+//   total.innerText = seats.length
+// }
+
+
+// Traer datos de BD
 function getSelected() {
   const ui = new UI();
   ui.renderPlateasFecha(date.value);
-  // agregar para reservados
 }
 
 
@@ -41,24 +65,40 @@ date.addEventListener('change', (e) => {
 })
 
 
-// Función para buscar información de asiento seleccionado
-function getSeat() {}
-
-
 // Selección de asientos
 seatsMap.addEventListener('click', (e) => {
   if (e.target.classList.contains('asiento') && !e.target.classList.contains('deshabilitado')) {
-    e.target.classList.toggle('ocupado')
 
+    if (e.target.classList.contains('reservado')) {
+      e.target.classList.toggle('reservado')
+      e.target.classList.toggle('ocupado')
 
-    // if (e.target.classList.contains('reservado')) {
-    //   e.target.classList.toggle('reservado')
-    //   e.target.classList.toggle('ocupado')
+      const formData =  {
+        'platea': e.target.id,
+        'dia': date.value,
+        'comprado': 'true',
+        'reservado': 'false'
+      }
+
+      const ui = new UI();
+      // ui.updatePlatea(formData);
+
     // } else if (e.target.classList.contains('ocupado')) {
     //   e.target.classList.toggle('ocupado')
-    // } else {
-    //   e.target.classList.toggle('reservado')
-    // }
+    } else {
+      e.target.classList.toggle('reservado')
+
+      const formData =  {
+        'platea': e.target.id,
+        'dia': date.value,
+        'comprado': 'false',
+        'reservado': 'true'
+      }
+
+      const ui = new UI();
+      ui.addNewPlatea(formData);
+
+    }
   }
 
   // updateSelected();

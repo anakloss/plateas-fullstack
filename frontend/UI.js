@@ -12,7 +12,12 @@ class UI {
   async renderPlateasFecha(dateSelected) {
     const plateas = await plateaService.getPlateasFecha(dateSelected);
 
-    plateas.forEach(platea => {
+    plateas['reservado'].forEach(platea => {
+      const seat = document.getElementById(`${platea.platea}`);
+      seat.classList.toggle('reservado');
+    });
+
+    plateas['comprado'].forEach(platea => {
       const seat = document.getElementById(`${platea.platea}`);
       seat.classList.toggle('ocupado');
     });
@@ -22,9 +27,13 @@ class UI {
     await plateaService.postPlatea(platea);
   }
 
+  async updatePlatea(platea) {
+    await plateaService.postUpdatePlatea(platea);
+  }
+
   clearPlateas() {
     const selectedSeats = document.querySelectorAll('.fila .asiento.ocupado');
-    const selectedSeatsRes = document.querySelectorAll('.fila .asiento.reservado')
+    const selectedSeatsRes = document.querySelectorAll('.fila .asiento.reservado');
 
     selectedSeats.forEach((seat, i) => {
       seat.classList.toggle('ocupado')
