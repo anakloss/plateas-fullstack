@@ -11,7 +11,7 @@ class PlateaService {
   }
 
   async getPlateasFecha(fecha) {
-    const res = await fetch(`${this.URI}/${fecha}`);
+    const res = await fetch(`${this.URI}/fecha/${fecha}`);
     const plateas = await res.json();
     return plateas;
   }
@@ -30,7 +30,7 @@ class PlateaService {
   }
 
   async postUpdatePlatea(platea) {
-    const res = await fetch(`${this.URI}/edit/${platea.id}`, {
+    const res = await fetch(`${this.URI}/edit/${platea.dia}/${platea.platea}`, {
       headers: {
         'Content-Type': 'application/json'
       },
@@ -42,8 +42,8 @@ class PlateaService {
   }
 
   // delete
-  async deletePlatea(plateaId) {
-    const res = await fetch(`${this.URI}/${plateaId}`, {
+  async deletePlatea(platea) {
+    const res = await fetch(`${this.URI}/${platea.dia}/${platea.platea}`, {
       headers: {
         'Content-Type': 'application/json'
       },

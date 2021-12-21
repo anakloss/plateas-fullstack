@@ -13,56 +13,29 @@ const total = document.getElementById('total');
 // console.log(date.value);   // Fecha option
 // console.log(date.options[date.selectedIndex].innerText);  Fecha Texto
 
-// document.addEventListener('DOMContentLoaded', e => {
-//   const ui = new UI();
-//   ui.renderPlateas();
-// });
 
 
-getSelected();
-
-
-// Actualizar selección de asientos y totales
-// function updateSelected() {
-//   const selectedSeats = document.querySelectorAll('.fila .asiento.ocupado')
-//   const selectedSeatsRes = document.querySelectorAll('.fila .asiento.reservado')
-//
-//   // // localStorage
-//   // const seatsIndex = [...selectedSeats].map(function (seat) {
-//   //   return [...seats].indexOf(seat)
-//   // })
-//   // const seatsResIndex = [...selectedSeatsRes].map(function (seat) {
-//   //   return [...seats].indexOf(seat)
-//   // })
-//   //
-//   // localStorage.setItem(date.value, JSON.stringify({
-//   //   'ocupado': seatsIndex,
-//   //   'reservado': seatsResIndex,
-//   //   }))
-//
-//   // Cant de asientos seleccionados
-//   count.innerText = selectedSeats.length
-//   total.innerText = seats.length
-// }
+// getSelected();
 
 
 // Traer datos de BD
 function getSelected() {
   const ui = new UI();
-  ui.renderPlateasFecha(date.value);
+  const plateas = ui.renderPlateasFecha(date.value);
 }
 
 
 // Accion al cambiar día
 date.addEventListener('change', (e) => {
-  // Reset asientos ocupados
   const ui = new UI();
   ui.clearPlateas();
-
-  // Actualiza listado de asientos ocupados
   getSelected()
-  // updateSelected()
 })
+
+
+document.addEventListener('DOMContentLoaded', e => {
+  getSelected();
+});
 
 
 // Selección de asientos
@@ -81,10 +54,21 @@ seatsMap.addEventListener('click', (e) => {
       }
 
       const ui = new UI();
-      // ui.updatePlatea(formData);
+      ui.updatePlatea(formData);
+      ui.renderMsg('Platea ocupada', 'danger', 3000);
 
-    // } else if (e.target.classList.contains('ocupado')) {
-    //   e.target.classList.toggle('ocupado')
+    } else if (e.target.classList.contains('ocupado')) {
+      e.target.classList.toggle('ocupado')
+
+      const formData =  {
+        'platea': e.target.id,
+        'dia': date.value,
+      }
+
+      const ui = new UI();
+      ui.deletePlatea(formData);
+      ui.renderMsg('Platea desocupada', 'success', 3000);
+
     } else {
       e.target.classList.toggle('reservado')
 
@@ -97,13 +81,10 @@ seatsMap.addEventListener('click', (e) => {
 
       const ui = new UI();
       ui.addNewPlatea(formData);
-
+      ui.renderMsg('Platea reservada', 'warning', 3000);
     }
   }
-
-  // updateSelected();
 })
-// updateSelected();
 
 
 // Selección en minimapa

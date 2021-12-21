@@ -5,8 +5,7 @@ const plateaService = new PlateaService();
 class UI {
 
   async renderPlateas() {
-    const plateas = await plateaService.getPlateas();
-    console.log(plateas);
+    await plateaService.getPlateas();
   }
 
   async renderPlateasFecha(dateSelected) {
@@ -21,6 +20,10 @@ class UI {
       const seat = document.getElementById(`${platea.platea}`);
       seat.classList.toggle('ocupado');
     });
+
+    countOc.innerText = plateas['comprado'].length
+    countRe.innerText = plateas['reservado'].length
+    total.innerText = document.querySelectorAll('.fila .asiento:not(.deshabilitado)').length
   }
 
   async addNewPlatea(platea) {
@@ -44,9 +47,24 @@ class UI {
     });
   }
 
-  renderMsg() {}
+  renderMsg(message, colorMsg, secToRemove) {
+    const div = document.createElement('div');
+    div.className = `alert alert-${colorMsg}`;
 
-  deletePlatea() {}
+    div.appendChild(document.createTextNode(message));
+
+    const container = document.querySelector('.col-md-5');
+    const bookForm = document.querySelector('#book-form');
+    container.insertBefore(div, bookForm);
+
+    setTimeout(() => {
+      document.querySelector('.message').remove();
+    }, secToRemove);
+  }
+
+  async deletePlatea(platea) {
+    await plateaService.deletePlatea(platea);
+  }
 
 }
 
