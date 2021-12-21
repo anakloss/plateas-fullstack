@@ -16,6 +16,12 @@ class PlateaService {
     return plateas;
   }
 
+  async getPlateasReservadas() {
+    const res = await fetch(`${this.URI}/reservas`);
+    const plateas = await res.json();
+    return plateas;
+  }
+
   // post
   async postPlatea(platea) {
     const res = await fetch(this.URI, {

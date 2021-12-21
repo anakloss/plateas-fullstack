@@ -18,7 +18,11 @@ router.get('/fecha/:dia', async (req, res) => {
 
 router.get('/platea/:platea', async (req, res) => {
   const platea = await Platea.find({platea: req.params.platea});
-  console.log(platea);
+  res.json(platea);
+});
+
+router.get('/reservas', async (req, res) => {
+  const platea = await Platea.find({reservado: true});
   res.json(platea);
 });
 

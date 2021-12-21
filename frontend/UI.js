@@ -1,5 +1,6 @@
 import PlateaService from './services/PlateaService';
 const plateaService = new PlateaService();
+import { format } from 'timeago.js'
 
 
 class UI {
@@ -24,6 +25,28 @@ class UI {
     countOc.innerText = plateas['comprado'].length
     countRe.innerText = plateas['reservado'].length
     total.innerText = document.querySelectorAll('.fila .asiento:not(.deshabilitado)').length
+  }
+
+  async renderPlateasReservadas() {
+    const plateas = await plateaService.getPlateasReservadas();
+    const tbody = window.document.getElementById('tbody');
+    if (tbody) {
+      tbody.innerHTML = '';
+      plateas.forEach(platea => {
+        const tr = window.document.createElement('tr');
+        tr.innerHTML = `
+          <td>${platea.dia}</td>
+          <td>${platea.platea}</td>
+          <td>${Date(platea.fecha_actividad)}</td>
+          <td>${format(platea.created_at)}</td>
+          <td>
+            <button class="btn btn-danger">Ocupar</button>
+            <button class="btn btn-success">Cancelar</button>
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
   }
 
   async addNewPlatea(platea) {
@@ -53,12 +76,12 @@ class UI {
 
     div.appendChild(document.createTextNode(message));
 
-    const container = document.querySelector('.col-md-5');
-    const bookForm = document.querySelector('#book-form');
-    container.insertBefore(div, bookForm);
+    const container = document.getElementById('info');
+    const text = document.querySelector('#text');
+    container.insertBefore(div, text);
 
     setTimeout(() => {
-      document.querySelector('.message').remove();
+      document.querySelector('.alert').remove();
     }, secToRemove);
   }
 

@@ -24,7 +24,20 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './frontend/index.html',
+      filename: 'index.html',
+      template: './frontend/views/index.html',
+      minify: {
+        collapseWhitespace: true,
+        removeComments: true,
+        removeRedundantAttributes: true,
+        removeScriptTypeAttributes: true,
+        removeStyleLinkTypeAttributes: true,
+        useShortDoctype: true
+      }
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'reservas.html',
+      template: './frontend/views/reservas.html',
       minify: {
         collapseWhitespace: true,
         removeComments: true,

@@ -6,6 +6,9 @@ const express = require('express');
 const morgan = require('morgan');
 const path = require('path');
 const cors = require('cors');
+const webpack = require('webpack');
+const webpackDevMiddleware = require('webpack-dev-middleware');
+const webpackConfig = require('../webpack.config');
 
 
 // initializations
@@ -22,6 +25,7 @@ app.use(morgan('dev'));
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
 app.use(cors());
+app.use(webpackDevMiddleware(webpack(webpackConfig)));
 
 
 // routes
