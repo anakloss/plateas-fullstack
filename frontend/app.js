@@ -1,9 +1,12 @@
+import './styles/bootstrap5.css';
+import './styles/animate.css';
 import './styles/app.css';
 import UI from './UI'
 
 const map = document.querySelector('.mapa');
 const seatsMap = document.querySelector('.asientos-mapa');
 const date = document.getElementById('fecha');
+const tbodyList = document.getElementById('tbody');
 
 
 // Info
@@ -111,5 +114,24 @@ if (map) {
       columnaDer.style.display = "none";
       columnaIzq.style.display = "none";
     }
+  });
+}
+
+
+// Acción de botones en listado
+if (tbodyList) {
+  tbodyList.addEventListener('click', e => {
+    if (e.target.classList.contains('ocupar')) {
+      const ui = new UI();
+      ui.updatePlateaId(e.target.getAttribute('_id'));
+      ui.renderMsgList('Platea ocupada', 'danger', 2000);
+    } else if (e.target.classList.contains('desocupar')) {
+      const ui = new UI();
+      ui.deletePlateaId(e.target.getAttribute('_id'));
+      ui.renderMsgList('Platea desocupada', 'success', 2000);
+    }
+
+    ui.renderPlateasReservadas();
+    e.preventDefault();
   });
 }
