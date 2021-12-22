@@ -61,7 +61,7 @@ if (seatsMap) {
 
         const ui = new UI();
         ui.updatePlatea(formData);
-        ui.renderMsg(`Platea ${e.target.id} ocupada`, 'danger', 2000);
+        ui.renderMsg(`Platea ${e.target.id} ocupada`, 'danger', 1000);
 
       } else if (e.target.classList.contains('ocupado')) {
         e.target.classList.toggle('ocupado')
@@ -73,7 +73,7 @@ if (seatsMap) {
 
         const ui = new UI();
         ui.deletePlatea(formData);
-        ui.renderMsg(`Platea ${e.target.id} desocupada`, 'success', 2000);
+        ui.renderMsg(`Platea ${e.target.id} desocupada`, 'success', 1000);
 
       } else {
         e.target.classList.toggle('reservado')
@@ -87,7 +87,7 @@ if (seatsMap) {
 
         const ui = new UI();
         ui.addNewPlatea(formData);
-        ui.renderMsg(`Platea ${e.target.id} reservada`, 'warning', 2000);
+        ui.renderMsg(`Platea ${e.target.id} reservada`, 'warning', 1000);
       }
     }
   });

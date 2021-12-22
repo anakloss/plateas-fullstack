@@ -66,12 +66,13 @@ class UI {
   renderMsg(message, colorMsg, secToRemove) {
     const div = document.createElement('div');
     div.className = `alert alert-${colorMsg}`;
+    div.style = 'font-size: 15px; text-align: center;'
 
     div.appendChild(document.createTextNode(message));
 
-    const container = document.getElementById('info');
-    const text = document.querySelector('#text');
-    container.insertBefore(div, text);
+    const container = document.querySelector('.col-md-2');
+    const msg = document.querySelector('#msg');
+    container.insertBefore(div, msg);
 
     setTimeout(() => {
       document.querySelector('.alert').remove();
