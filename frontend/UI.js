@@ -43,11 +43,15 @@ class UI {
       }
       tbody.innerHTML = '';
       plateas.forEach(platea => {
+        var fecha = new Date(platea.fecha_actividad);
+        var yesterday = new Date(new Date(Date.now()).getTime() - (24 * 60 * 60 * 1000));
+
         const tr = window.document.createElement('tr');
+        tr.className = (yesterday >= fecha) ? 'table-warning' : ''
         tr.innerHTML = `
           <td>${dias[platea.dia]}</td>
           <td>${platea.platea}</td>
-          <td>${platea.fecha_actividad}</td>
+          <td>${fecha.toLocaleString()}</td>
           <td>${format(platea.fecha_actividad)}</td>
           <td>
             <a href="#" class="btn btn-danger ocupar" _id="${platea._id}">Ocupar</a>
