@@ -14,7 +14,7 @@
     "url": "git+ssh://git@bitbucket.org/anak492/plateas-fullstack.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Ana Kloss",
   "license": "ISC",
   "bugs": {
     "url": "https://bitbucket.org/anak492/plateas-fullstack/issues"
@@ -26,7 +26,8 @@
     "dotenv": "^10.0.0",
     "express": "^4.17.2",
     "mongoose": "^6.1.2",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "socket.io": "^4.4.0"
   },
   "devDependencies": {
     "css-loader": "^6.5.1",

@@ -9,6 +9,7 @@ const cors = require('cors');
 const webpack = require('webpack');
 const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackConfig = require('../webpack.config');
+const socketIO = require('socket.io');
 
 
 // initializations
@@ -37,6 +38,19 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 // starting server
-app.listen(app.get('port'), () => {
+const server = app.listen(app.get('port'), () => {
     console.log(`Server on port ${app.get('port')}`);
+});
+
+
+// websockets
+const io = socketIO(server);
+
+io.on('connection', socket => {
+  console.log('new connection', socket.io);
+
+  socket.on('platea:accion', data => {
+    socket.broadcast.emit('platea:accion', data);
+  });
+
 });

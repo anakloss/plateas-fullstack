@@ -3,6 +3,9 @@ import './styles/animate.css';
 import './styles/app.css';
 import UI from './UI'
 
+const socket = io();
+
+// DOM elements
 const map = document.querySelector('.mapa');
 const seatsMap = document.querySelector('.asientos-mapa');
 const date = document.getElementById('fecha');
@@ -47,6 +50,11 @@ document.addEventListener('DOMContentLoaded', () => {
 if (seatsMap) {
   seatsMap.addEventListener('click', (e) => {
     if (e.target.classList.contains('asiento') && !e.target.classList.contains('deshabilitado')) {
+
+      socket.emit('platea:accion', {
+          platea: e.target.id,
+          fecha: date.value
+        });
 
       if (e.target.classList.contains('reservado')) {
         e.target.classList.toggle('reservado')
@@ -135,3 +143,20 @@ if (tbodyList) {
     e.preventDefault();
   });
 }
+
+
+// sockets
+socket.on('platea:accion', data => {
+  let plateaId = document.getElementById(data.platea)
+
+  if (data.fecha == date.value) {
+    if (plateaId.classList.contains('reservado')) {
+      plateaId.classList.toggle('reservado')
+      plateaId.classList.toggle('ocupado')
+    } else if (plateaId.classList.contains('ocupado')) {
+      plateaId.classList.toggle('ocupado')
+    } else {
+      plateaId.classList.toggle('reservado')
+    }
+  }
+});
