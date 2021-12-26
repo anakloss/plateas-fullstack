@@ -55,6 +55,7 @@ if (seatsMap) {
           platea: e.target.id,
           fecha: date.value
         });
+      socket.emit('platea:cont');
 
       if (e.target.classList.contains('reservado')) {
         e.target.classList.toggle('reservado')
@@ -149,14 +150,27 @@ if (tbodyList) {
 socket.on('platea:accion', data => {
   let plateaId = document.getElementById(data.platea)
 
-  if (data.fecha == date.value) {
-    if (plateaId.classList.contains('reservado')) {
-      plateaId.classList.toggle('reservado')
-      plateaId.classList.toggle('ocupado')
-    } else if (plateaId.classList.contains('ocupado')) {
-      plateaId.classList.toggle('ocupado')
-    } else {
-      plateaId.classList.toggle('reservado')
+  if (!tbodyList) {
+    if (data.fecha == date.value) {
+      if (plateaId.classList.contains('reservado')) {
+        plateaId.classList.toggle('reservado')
+        plateaId.classList.toggle('ocupado')
+      } else if (plateaId.classList.contains('ocupado')) {
+        plateaId.classList.toggle('ocupado')
+      } else {
+        plateaId.classList.toggle('reservado')
+      }
     }
+  }
+  ui.renderPlateasReservadas();
+});
+
+socket.on('platea:cont', () => {
+  let countOc = document.getElementById('countOc');
+  let countRe = document.getElementById('countRe');
+
+  if (!tbodyList) {
+    countOc.innerText = document.querySelectorAll('.fila .asiento.ocupado').length
+    countRe.innerText = document.querySelectorAll('.fila .asiento.reservado').length
   }
 });

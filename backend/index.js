@@ -49,6 +49,10 @@ const io = socketIO(server);
 io.on('connection', socket => {
   console.log('new connection', socket.io);
 
+  socket.on('platea:cont', () => {
+    io.sockets.emit('platea:cont');
+  });
+
   socket.on('platea:accion', data => {
     socket.broadcast.emit('platea:accion', data);
   });
