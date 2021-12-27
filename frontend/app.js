@@ -108,6 +108,7 @@ if (map) {
   map.addEventListener('click', (e) => {
     const columnaIzq = document.getElementById("col-izq")
     const columnaDer = document.getElementById("col-der")
+    const nfilas = document.getElementById("nfilas")
 
     if (e.target.classList.contains('area_inp')) {
       if (e.target.value == 'izq') {
@@ -118,10 +119,12 @@ if (map) {
         columnaDer.style.display = "block";
         columnaIzq.style.display = "none";
       }
+      nfilas.style.display = "block";
     }
     else {
       columnaDer.style.display = "none";
       columnaIzq.style.display = "none";
+      nfilas.style.display = "none";
     }
   });
 }
