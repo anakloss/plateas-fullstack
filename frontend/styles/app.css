@@ -54,6 +54,7 @@ body {
   vertical-align: middle;
   border-radius: 6px 6px 6px 6px;
   padding: 0.3em 0 0;
+  cursor: default;
 }
 
 .asiento {
@@ -77,6 +78,7 @@ body {
 .asiento.deshabilitado {
   background-color: #142333;
   font-size: 0;
+  cursor: default;
 }
 
 .asiento.reservado {
