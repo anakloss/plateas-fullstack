@@ -52,9 +52,9 @@ if (seatsMap) {
     if (e.target.classList.contains('asiento') && !e.target.classList.contains('deshabilitado')) {
 
       socket.emit('platea:accion', {
-          platea: e.target.id,
-          fecha: date.value
-        });
+        platea: e.target.id,
+        fecha: date.value
+      });
       socket.emit('platea:cont');
 
       if (e.target.classList.contains('reservado')) {
@@ -73,16 +73,18 @@ if (seatsMap) {
         ui.renderMsg(`Platea ${e.target.id} ocupada`, 'danger', 1000);
 
       } else if (e.target.classList.contains('ocupado')) {
-        e.target.classList.toggle('ocupado')
+        if (confirm(`Seguro que desea desocupar la platea Nº ${e.target.id}?`)) {
+          e.target.classList.toggle('ocupado')
 
-        const formData =  {
-          'platea': e.target.id,
-          'dia': date.value,
+          const formData =  {
+            'platea': e.target.id,
+            'dia': date.value,
+          }
+
+          const ui = new UI();
+          ui.deletePlatea(formData);
+          ui.renderMsg(`Platea ${e.target.id} desocupada`, 'success', 1000);
         }
-
-        const ui = new UI();
-        ui.deletePlatea(formData);
-        ui.renderMsg(`Platea ${e.target.id} desocupada`, 'success', 1000);
 
       } else {
         e.target.classList.toggle('reservado')
