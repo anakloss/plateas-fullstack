@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-mongoose.connect(process.env.MONGODB_URI, {
+mongoose.connect('mongodb://mongo/plateasdb', {
   useNewUrlParser: true
 })
   .then(db => console.log('DB is connected'))

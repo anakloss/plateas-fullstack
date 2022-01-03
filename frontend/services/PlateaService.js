@@ -1,6 +1,6 @@
 class PlateaService {
   constructor() {
-    this.URI = 'http://192.168.5.53:3000/api/plateas';
+    this.URI = 'http://192.168.5.53:3300/api/plateas';
     // this.URI = 'http://localhost:3000/api/plateas';
   }
 
