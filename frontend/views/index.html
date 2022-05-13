@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Disponibilidad de Plateas</title>
+    <link rel="shortcut icon" href="#">
+    <!-- bootstrap 5 -->
+    <!-- <link rel="stylesheet" href="https://bootswatch.com/5/cosmo/bootstrap.min.css"> -->
+    <!-- Animate CSS -->
+    <!-- <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/> -->
+  </head>
+  <body>
+    <nav class="navbar navbar-dark bg-dark">
+      <div class="container">
+        <a href="/" class="navbar-brand auto" id="platea">Plateas</a>
+        <a href="/reservas.html" class="navbar-brand" id="reservas">Reservas</a>
+      </div>
+    </nav>
+
+    <div class="container p-2">
+      <div class="row">
+
+        <div class="col-md-6">
+          <menu class="menu">
+            <div class="platea-menu">
+              <label>Seleccionar fecha</label>
+              <select id="fecha" name="fecha" title="Fecha">
+                  <option value="dia1">06/01/2022</option>
+                  <option value="dia2">07/01/2022</option>
+                  <option value="dia3">08/01/2022</option>
+                  <option value="dia4">09/01/2022</option>
+                  <option value="dia5">10/01/2022</option>
+                  <option value="dia6">11/01/2022</option>
+                  <option value="dia7">12/01/2022</option>
+              </select>
+            </div>
+
+            <div class="mapa">
+              <p class="area">
+                <input id="area_izq" type="radio" name="area" value="izq" class="area_inp" checked>
+                <label for="area_izq">
+                  <svg viewBox="0 0 100 100" class="izquierda"></svg>Área Izquierda
+                </label>
+              </p>
+
+              <p class="area">
+                <input id="area_der" type="radio" name="area" value="der" class="area_inp" checked>
+                <label for="area_der">
+                  <svg viewBox="0 0 100 100" class="derecha"></svg>Área Derecha
+                </label>
+              </p>
+            </div>
+          </menu>
+        </div>
+
+        <div id="info" class="col-md-4 p-4">
+          <p class="text mb-4">
+            <span id="countOc">0</span> asientos ocupados y
+            <span id="countRe">0</span> asientos reservados de
+            <span id="total">0</span>
+          </p>
+
+          <ul class="showcase">
+            <li>
+              <div class="asiento ocupado"></div>
+              <small>Ocupado</small>
+            </li>
+            <li>
+              <div class="asiento reservado"></div>
+              <small>Reservado</small>
+            </li>
+            <li>
+              <div class="asiento"></div>
+              <small>Desocupado</small>
+            </li>
+          </ul>
+        </div>
+
+        <div class="col-md-2">
+          <div id="msg"></div>
+        </div>
+
+      </div>
+
+      <div class="asientos-mapa p-3">
+        <!-- <div class="escenario"></div> -->
+
+        <!-- Asientos -->
+        <div class="columna1" id="col-izq" style="display:none;">
+          <!-- Fila 2 -->
+          <div class="fila" id="fila">
+            <div class='asiento' id='1'>1</div>
+            <div class='asiento' id='2'>2</div>
+            <div class='asiento' id='3'>3</div>
+            <div class='asiento' id='4'>4</div>
+            <div class='asiento' id='5'>5</div>
+            <div class='asiento' id='6'>6</div>
+            <div class='asiento' id='7'>7</div>
+            <div class='asiento' id='8'>8</div>
+            <div class='asiento' id='9'>9</div>
+            <div class='asiento' id='10'>10</div>
+            <div class='asiento' id='11'>11</div>
+            <div class='asiento' id='12'>12</div>
+          </div>
+          <!-- Fila 3 -->
+          <div class="fila" id="fila">
+            <div class='asiento' id='52'>52</div>
+            <div class='asiento' id='51'>51</div>
+            <div class='asiento' id='50'>50</div>
+            <div class='asiento' id='49'>49</div>
+            <div class='asiento' id='48'>48</div>
+            <div class='asiento' id='47'>47</div>
+            <div class='asiento' id='46'>46</div>
+            <div class='asiento' id='45'>45</div>
+            <div class='asiento' id='44'>44</div>
+            <div class='asiento' id='43'>43</div>
+            <div class='asiento' id='42'>42</div>
+            <div class='asiento' id='41'>41</div>
+            <div class='asiento' id='40'>40</div>
+            <div class='asiento' id='39'>39</div>
+          </div>
+          <!-- Fila 4 -->
+          <div class="fila" id="fila">
+            <div class='asiento' id='53'>53</div>
+            <div class='asiento' id='54'>54</div>
+            <div class='asiento' id='55'>55</div>
+            <div class='asiento' id='56'>56</div>
+            <div class='asiento' id='57'>57</div>
+            <div class='asiento' id='58'>58</div>
+            <div class='asiento' id='59'>59</div>
+            <div class='asiento' id='60'>60</div>
+            <div class='asiento' id='61'>61</div>
+            <div class='asiento' id='62'>62</div>
+            <div class='asiento' id='63'>63</div>
+            <div class='asiento' id='64'>64</div>
+            <div class='asiento' id='65'>65</div>
+            <div class='asiento' id='66'>66</div>
+            <div class='asiento' id='67'>67</div>
+            <div class='asiento' id='68'>68</div>
+          </div>
+          <!-- Fila 5 -->
+          <div class="fila" id="fila">
+            <div class='asiento' id='120'>120</div>
+            <div class='asiento' id='119'>119</div>
+            <div class='asiento' id='118'>118</div>
+            <div class='asiento' id='117'>117</div>
+            <div class='asiento' id='116'>116</div>
+            <div class='asiento' id='115'>115</div>
+            <div class='asiento' id='114'>114</div>
+            <div class='asiento' id='113'>113</div>
+            <div class='asiento' id='112'>112</div>
+            <div class='asiento' id='111'>111</div>
+            <div class='asiento' id='110'>110</div>
+            <div class='asiento' id='109'>109</div>
+            <div class='asiento' id='108'>108</div>
+            <div class='asiento' id='107'>107</div>
+            <div class='asiento' id='106'>106</div>
+            <div class='asiento' id='105'>105</div>
+            <div class='asiento' id='104'>104</div>
+            <div class='asiento' id='103'>103</div>
+          </div>
+          <!-- Fila 6 -->
+          <div class="fila" id="fila">
+            <div class='asiento' id='121'>121</div>
+            <div class='asiento' id='122'>122</div>
+            <div class='asiento' id='123'>123</div>
+            <div class='asiento' id='124'>124</div>
+            <div class='asiento' id='125'>125</div>
+            <div class='asiento' id='126'>126</div>
+            <div class='asiento' id='127'>127</div>
+            <div class='asiento' id='128'>128</div>
+            <div class='asiento' id='129'>129</div>
+            <div class='asiento' id='130'>130</div>
+            <div class='asiento' id='131'>131</div>
+            <div class='asiento' id='132'>132</div>
+            <div class='asiento' id='133'>133</div>
+            <div class='asiento' id='134'>134</div>
+            <div class='asiento' id='135'>135</div>
+            <div class='asiento' id='136'>136</div>
+            <div class='asiento' id='137'>137</div>
+            <div class='asiento' id='138'>138</div>
+            <div class='asiento' id='139'>139</div>
+            <div class='asiento' id='140'>140</div>
+          </div>
+          <!-- Fila 7 -->
+          <div class="fila" id="fila">
+            <div class='asiento' id='204'>204</div>
+            <div class='asiento' id='203'>203</div>
+            <div class='asiento' id='202'>202</div>
+            <div class='asiento' id='201'>201</div>
+            <div class='asiento' id='200'>200</div>
+            <div class='asiento' id='199'>199</div>
+            <div class='asiento' id='198'>198</div>
+            <div class='asiento' id='197'>197</div>
+            <div class='asiento' id='196'>196</div>
+            <div class='asiento' id='195'>195</div>
+            <div class='asiento' id='194'>194</div>
+            <div class='asiento' id='193'>193</div>
+            <div class='asiento' id='192'>192</div>
+            <div class='asiento' id='191'>191</div>
+            <div class='asiento' id='190'>190</div>
+            <div class='asiento' id='189'>189</div>
+            <div class='asiento' id='188'>188</div>
+            <div class='asiento' id='187'>187</div>
+            <div class='asiento' id='186'>186</div>
+            <div class='asiento' id='185'>185</div>
+            <div class='asiento' id='184'>184</div>
+            <div class='asiento' id='183'>183</div>
+          </div>
+          <!-- Fila 8 -->
+          <div class="fila" id="fila">
+            <div class='asiento' id='205'>205</div>
+            <div class='asiento' id='206'>206</div>
+            <div class='asiento' id='207'>207</div>
+            <div class='asiento' id='208'>208</div>
+            <div class='asiento' id='209'>209</div>
+            <div class='asiento' id='210'>210</div>
+            <div class='asiento' id='211'>211</div>
+            <div class='asiento' id='212'>212</div>
+            <div class='asiento' id='213'>213</div>
+            <div class='asiento' id='214'>214</div>
+            <div class='asiento' id='215'>215</div>
+            <div class='asiento' id='216'>216</div>
+            <div class='asiento' id='217'>217</div>
+            <div class='asiento' id='218'>218</div>
+            <div class='asiento' id='219'>219</div>
+            <div class='asiento' id='220'>220</div>
+            <div class='asiento' id='221'>221</div>
+            <div class='asiento' id='222'>222</div>
+            <div class='asiento' id='223'>223</div>
+            <div class='asiento' id='224'>224</div>
+            <div class='asiento' id='225'>225</div>
+            <div class='asiento' id='226'>226</div>
+            <div class='asiento' id='227'>227</div>
+            <div class='asiento' id='228'>228</div>
+          </div>
+          <!-- Fila 9 -->
+          <div class="fila" id="fila">
+            <div class='asiento' id='304'>304</div>
+            <div class='asiento' id='303'>303</div>
+            <div class='asiento' id='302'>302</div>
+            <div class='asiento' id='301'>301</div>
+            <div class='asiento' id='300'>300</div>
+            <div class='asiento' id='299'>299</div>
+            <div class='asiento' id='298'>298</div>
+            <div class='asiento' id='297'>297</div>
+            <div class='asiento' id='296'>296</div>
+            <div class='asiento' id='295'>295</div>
+            <div class='asiento' id='294'>294</div>
+            <div class='asiento' id='293'>293</div>
+            <div class='asiento' id='292'>292</div>
+            <div class='asiento' id='291'>291</div>
+            <div class='asiento' id='290'>290</div>
+            <div class='asiento' id='289'>289</div>
+            <div class='asiento' id='288'>288</div>
+            <div class='asiento' id='287'>287</div>
+            <div class='asiento' id='286'>286</div>
+            <div class='asiento' id='285'>285</div>
+            <div class='asiento' id='284'>284</div>
+            <div class='asiento' id='283'>283</div>
+            <div class='asiento' id='282'>282</div>
+            <div class='asiento' id='281'>281</div>
+            <div class='asiento' id='280'>280</div>
+            <div class='asiento' id='279'>279</div>
+          </div>
+          <!-- Fila 10 -->
+          <div class="fila" id="fila">
+            <div class='asiento' id='305'>305</div>
+            <div class='asiento' id='306'>306</div>
+            <div class='asiento' id='307'>307</div>
+            <div class='asiento' id='308'>308</div>
+            <div class='asiento' id='309'>309</div>
+            <div class='asiento' id='310'>310</div>
+            <div class='asiento' id='311'>311</div>
+            <div class='asiento' id='312'>312</div>
+            <div class='asiento' id='313'>313</div>
+            <div class='asiento' id='314'>314</div>
+            <div class='asiento' id='315'>315</div>
+            <div class='asiento' id='316'>316</div>
+            <div class='asiento' id='317'>317</div>
+            <div class='asiento' id='318'>318</div>
+            <div class='asiento' id='319'>319</div>
+            <div class='asiento' id='320'>320</div>
+            <div class='asiento' id='321'>321</div>
+            <div class='asiento' id='322'>322</div>
+            <div class='asiento' id='323'>323</div>
+            <div class='asiento' id='324'>324</div>
+            <div class='asiento' id='325'>325</div>
+            <div class='asiento' id='326'>326</div>
+            <div class='asiento' id='327'>327</div>
+            <div class='asiento' id='328'>328</div>
+            <div class='asiento' id='329'>329</div>
+            <div class='asiento' id='330'>330</div>
+            <div class='asiento' id='331'>331</div>
+            <div class='asiento' id='332'>332</div>
+          </div>
+          <!-- Fila 11 -->
+          <div class="fila" id="fila">
+            <div class='asiento' id='420'>420</div>
+            <div class='asiento' id='419'>419</div>
+            <div class='asiento' id='418'>418</div>
+            <div class='asiento' id='417'>417</div>
+            <div class='asiento' id='416'>416</div>
+            <div class='asiento' id='415'>415</div>
+            <div class='asiento' id='414'>414</div>
+            <div class='asiento' id='413'>413</div>
+            <div class='asiento' id='412'>412</div>
+            <div class='asiento' id='411'>411</div>
+            <div class='asiento' id='410'>410</div>
+            <div class='asiento' id='409'>409</div>
+            <div class='asiento' id='408'>408</div>
+            <div class='asiento' id='407'>407</div>
+            <div class='asiento' id='406'>406</div>
+            <div class='asiento' id='405'>405</div>
+            <div class='asiento' id='404'>404</div>
+            <div class='asiento' id='403'>403</div>
+            <div class='asiento' id='402'>402</div>
+            <div class='asiento' id='401'>401</div>
+            <div class='asiento' id='400'>400</div>
+            <div class='asiento' id='399'>399</div>
+            <div class='asiento' id='398'>398</div>
+            <div class='asiento' id='397'>397</div>
+            <div class='asiento' id='396'>396</div>
+            <div class='asiento' id='395'>395</div>
+            <div class='asiento' id='394'>394</div>
+            <div class='asiento' id='393'>393</div>
+            <div class='asiento' id='392'>392</div>
+            <div class='asiento' id='391'>391</div>
+          </div>
+        </div>
+
+        <div class="nfilas" id="nfilas" style="display:none;">
+          <div class="nfila">1</div>
+          <div class="nfila">2</div>
+          <div class="nfila">3</div>
+          <div class="nfila">4</div>
+          <div class="nfila">5</div>
+          <div class="nfila">6</div>
+          <div class="nfila">7</div>
+          <div class="nfila">8</div>
+          <div class="nfila">9</div>
+          <div class="nfila">10</div>
+        </div>
+
+        <div class="columna2" id="col-der" style="display:none;">
+          <!-- Fila 2 -->
+          <div class="fila" id="fila">
+            <div class='asiento' id='13'>13</div>
+            <div class='asiento' id='14'>14</div>
+            <div class='asiento' id='15'>15</div>
+            <div class='asiento' id='16'>16</div>
+            <div class='asiento' id='17'>17</div>
+            <div class='asiento' id='18'>18</div>
+            <div class='asiento' id='19'>19</div>
+            <div class='asiento' id='20'>20</div>
+            <div class='asiento' id='21'>21</div>
+            <div class='asiento' id='22'>22</div>
+            <div class='asiento' id='23'>23</div>
+            <div class='asiento' id='24'>24</div>
+          </div>
+          <!-- Fila 3 -->
+          <div class="fila" id="fila">
+            <div class='asiento' id='38'>38</div>
+            <div class='asiento' id='37'>37</div>
+            <div class='asiento' id='36'>36</div>
+            <div class='asiento' id='35'>35</div>
+            <div class='asiento' id='34'>34</div>
+            <div class='asiento' id='33'>33</div>
+            <div class='asiento' id='32'>32</div>
+            <div class='asiento' id='31'>31</div>
+            <div class='asiento' id='30'>30</div>
+            <div class='asiento' id='29'>29</div>
+            <div class='asiento' id='28'>28</div>
+            <div class='asiento' id='27'>27</div>
+            <div class='asiento' id='26'>26</div>
+            <div class='asiento' id='25'>25</div>
+          </div>
+          <!-- Fila 4 -->
+          <div class="fila" id="fila">
+            <div class='asiento' id='69'>69</div>
+            <div class='asiento' id='70'>70</div>
+            <div class='asiento' id='71'>71</div>
+            <div class='asiento' id='72'>72</div>
+            <div class='asiento' id='73'>73</div>
+            <div class='asiento' id='74'>74</div>
+            <div class='asiento' id='75'>75</div>
+            <div class='asiento' id='76'>76</div>
+            <div class='asiento' id='77'>77</div>
+            <div class='asiento' id='78'>78</div>
+            <div class='asiento' id='79'>79</div>
+            <div class='asiento' id='80'>80</div>
+            <div class='asiento' id='81'>81</div>
+            <div class='asiento' id='82'>82</div>
+            <div class='asiento' id='83'>83</div>
+            <div class='asiento' id='84'>84</div>
+          </div>
+          <!-- Fila 5 -->
+          <div class="fila" id="fila">
+            <div class='asiento' id='102'>102</div>
+            <div class='asiento' id='101'>101</div>
+            <div class='asiento' id='100'>100</div>
+            <div class='asiento' id='99'>99</div>
+            <div class='asiento' id='98'>98</div>
+            <div class='asiento' id='97'>97</div>
+            <div class='asiento' id='96'>96</div>
+            <div class='asiento' id='95'>95</div>
+            <div class='asiento' id='94'>94</div>
+            <div class='asiento' id='93'>93</div>
+            <div class='asiento' id='92'>92</div>
+            <div class='asiento' id='91'>91</div>
+            <div class='asiento' id='90'>90</div>
+            <div class='asiento' id='89'>89</div>
+            <div class='asiento' id='88'>88</div>
+            <div class='asiento' id='87'>87</div>
+            <div class='asiento' id='86'>86</div>
+            <div class='asiento' id='85'>85</div>
+          </div>
+          <!-- Fila 6 -->
+          <div class="fila" id="fila">
+            <div class='asiento' id='141'>141</div>
+            <div class='asiento' id='142'>142</div>
+            <div class='asiento' id='143'>143</div>
+            <div class='asiento' id='144'>144</div>
+            <div class='asiento' id='145'>145</div>
+            <div class='asiento' id='146'>146</div>
+            <div class='asiento' id='147'>147</div>
+            <div class='asiento' id='148'>148</div>
+            <div class='asiento' id='149'>149</div>
+            <div class='asiento' id='150'>150</div>
+            <div class='asiento' id='151'>151</div>
+            <div class='asiento' id='152'>152</div>
+            <div class='asiento' id='153'>153</div>
+            <div class='asiento' id='154'>154</div>
+            <div class='asiento' id='155'>155</div>
+            <div class='asiento' id='156'>156</div>
+            <div class='asiento' id='157'>157</div>
+            <div class='asiento' id='158'>158</div>
+            <div class='asiento' id='159'>159</div>
+            <div class='asiento' id='160'>160</div>
+          </div>
+          <!-- Fila 7 -->
+          <div class="fila" id="fila">
+            <div class='asiento' id='182'>182</div>
+            <div class='asiento' id='181'>181</div>
+            <div class='asiento' id='180'>180</div>
+            <div class='asiento' id='179'>179</div>
+            <div class='asiento' id='178'>178</div>
+            <div class='asiento' id='177'>177</div>
+            <div class='asiento' id='176'>176</div>
+            <div class='asiento' id='175'>175</div>
+            <div class='asiento' id='174'>174</div>
+            <div class='asiento' id='173'>173</div>
+            <div class='asiento' id='172'>172</div>
+            <div class='asiento' id='171'>171</div>
+            <div class='asiento' id='170'>170</div>
+            <div class='asiento' id='169'>169</div>
+            <div class='asiento' id='168'>168</div>
+            <div class='asiento' id='167'>167</div>
+            <div class='asiento' id='166'>166</div>
+            <div class='asiento' id='165'>165</div>
+            <div class='asiento' id='164'>164</div>
+            <div class='asiento' id='163'>163</div>
+            <div class='asiento' id='162'>162</div>
+            <div class='asiento' id='161'>161</div>
+          </div>
+          <!-- Fila 8 -->
+          <div class="fila" id="fila">
+            <div class='asiento' id='229'>229</div>
+            <div class='asiento' id='230'>230</div>
+            <div class='asiento' id='231'>231</div>
+            <div class='asiento' id='232'>232</div>
+            <div class='asiento' id='233'>233</div>
+            <div class='asiento' id='234'>234</div>
+            <div class='asiento' id='235'>235</div>
+            <div class='asiento' id='236'>236</div>
+            <div class='asiento' id='237'>237</div>
+            <div class='asiento' id='238'>238</div>
+            <div class='asiento' id='239'>239</div>
+            <div class='asiento' id='240'>240</div>
+            <div class='asiento' id='241'>241</div>
+            <div class='asiento' id='242'>242</div>
+            <div class='asiento' id='243'>243</div>
+            <div class='asiento' id='244'>244</div>
+            <div class='asiento' id='245'>245</div>
+            <div class='asiento' id='246'>246</div>
+            <div class='asiento' id='247'>247</div>
+            <div class='asiento' id='248'>248</div>
+            <div class='asiento' id='249'>249</div>
+            <div class='asiento' id='250'>250</div>
+            <div class='asiento' id='251'>251</div>
+            <div class='asiento' id='252'>252</div>
+          </div>
+          <!-- Fila 9 -->
+          <div class="fila" id="fila">
+            <div class='asiento' id='278'>278</div>
+            <div class='asiento' id='277'>277</div>
+            <div class='asiento' id='276'>276</div>
+            <div class='asiento' id='275'>275</div>
+            <div class='asiento' id='274'>274</div>
+            <div class='asiento' id='273'>273</div>
+            <div class='asiento' id='272'>272</div>
+            <div class='asiento' id='271'>271</div>
+            <div class='asiento' id='270'>270</div>
+            <div class='asiento' id='269'>269</div>
+            <div class='asiento' id='268'>268</div>
+            <div class='asiento' id='267'>267</div>
+            <div class='asiento' id='266'>266</div>
+            <div class='asiento' id='265'>265</div>
+            <div class='asiento' id='264'>264</div>
+            <div class='asiento' id='263'>263</div>
+            <div class='asiento' id='262'>262</div>
+            <div class='asiento' id='261'>261</div>
+            <div class='asiento' id='260'>260</div>
+            <div class='asiento' id='259'>259</div>
+            <div class='asiento' id='258'>258</div>
+            <div class='asiento' id='257'>257</div>
+            <div class='asiento' id='256'>256</div>
+            <div class='asiento' id='255'>255</div>
+            <div class='asiento' id='254'>254</div>
+            <div class='asiento' id='253'>253</div>
+          </div>
+          <!-- Fila 10 -->
+          <div class="fila" id="fila">
+            <div class='asiento' id='333'>333</div>
+            <div class='asiento' id='334'>334</div>
+            <div class='asiento' id='335'>335</div>
+            <div class='asiento' id='336'>336</div>
+            <div class='asiento' id='337'>337</div>
+            <div class='asiento' id='338'>338</div>
+            <div class='asiento' id='339'>339</div>
+            <div class='asiento' id='340'>340</div>
+            <div class='asiento' id='341'>341</div>
+            <div class='asiento' id='342'>342</div>
+            <div class='asiento' id='343'>343</div>
+            <div class='asiento' id='344'>344</div>
+            <div class='asiento' id='345'>345</div>
+            <div class='asiento' id='346'>346</div>
+            <div class='asiento' id='347'>347</div>
+            <div class='asiento' id='348'>348</div>
+            <div class='asiento' id='349'>349</div>
+            <div class='asiento' id='350'>350</div>
+            <div class='asiento' id='351'>351</div>
+            <div class='asiento' id='352'>352</div>
+            <div class='asiento' id='353'>353</div>
+            <div class='asiento' id='354'>354</div>
+            <div class='asiento' id='355'>355</div>
+            <div class='asiento' id='356'>356</div>
+            <div class='asiento' id='357'>357</div>
+            <div class='asiento' id='358'>358</div>
+            <div class='asiento' id='359'>359</div>
+            <div class='asiento' id='360'>360</div>
+          </div>
+          <!-- Fila 11 -->
+          <div class="fila" id="fila">
+            <div class='asiento' id='390'>390</div>
+            <div class='asiento' id='389'>389</div>
+            <div class='asiento' id='388'>388</div>
+            <div class='asiento' id='387'>387</div>
+            <div class='asiento' id='386'>386</div>
+            <div class='asiento' id='385'>385</div>
+            <div class='asiento' id='384'>384</div>
+            <div class='asiento' id='383'>383</div>
+            <div class='asiento' id='382'>382</div>
+            <div class='asiento' id='381'>381</div>
+            <div class='asiento' id='380'>380</div>
+            <div class='asiento' id='379'>379</div>
+            <div class='asiento' id='378'>378</div>
+            <div class='asiento' id='377'>377</div>
+            <div class='asiento' id='376'>376</div>
+            <div class='asiento' id='375'>375</div>
+            <div class='asiento' id='374'>374</div>
+            <div class='asiento' id='373'>373</div>
+            <div class='asiento' id='372'>372</div>
+            <div class='asiento' id='371'>371</div>
+            <div class='asiento' id='370'>370</div>
+            <div class='asiento' id='369'>369</div>
+            <div class='asiento' id='368'>368</div>
+            <div class='asiento' id='367'>367</div>
+            <div class='asiento' id='366'>366</div>
+            <div class='asiento' id='365'>365</div>
+            <div class='asiento' id='364'>364</div>
+            <div class='asiento' id='363'>363</div>
+            <div class='asiento' id='362'>362</div>
+            <div class='asiento' id='361'>361</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <script src="/socket.io/socket.io.js" charset="utf-8"></script>
+  </body>
+</html>

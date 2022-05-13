@@ -1,0 +1,44 @@
+{
+  "name": "plateas-fullstack",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "cross-env NODE_ENV=production nodemon backend/index.js",
+    "dev": "cross-env NODE_ENV=development nodemon backend/index.js --ignore frontend",
+    "build": "cross-env NODE_ENV=production webpack",
+    "server:dev": "webpack-dev-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@bitbucket.org/anak492/plateas-fullstack.git"
+  },
+  "keywords": [],
+  "author": "Ana Kloss",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://bitbucket.org/anak492/plateas-fullstack/issues"
+  },
+  "homepage": "https://bitbucket.org/anak492/plateas-fullstack#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "cross-env": "^7.0.3",
+    "dotenv": "^10.0.0",
+    "express": "^4.18.1",
+    "mongoose": "^6.3.3",
+    "morgan": "^1.10.0",
+    "socket.io": "^4.5.0"
+  },
+  "devDependencies": {
+    "css-loader": "^6.7.1",
+    "html-webpack-plugin": "^5.5.0",
+    "mini-css-extract-plugin": "^2.6.0",
+    "nodemon": "^2.0.16",
+    "style-loader": "^3.3.1",
+    "timeago.js": "^4.0.2",
+    "webpack": "^5.72.1",
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-middleware": "^5.3.1",
+    "webpack-dev-server": "^4.9.0"
+  }
+}
